@@ -63,9 +63,9 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(187, 103);
             this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(188, 31);
             this.textBox1.TabIndex = 11;
+            this.textBox1.UseSystemPasswordChar = true;
             // 
             // maskedTextBox1
             // 
@@ -100,6 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(434, 211);
             this.Controls.Add(this.label1);
@@ -111,6 +112,7 @@
             this.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.MaximizeBox = false;
             this.Name = "DoktorGirisForm";
             this.Text = "Doktor Giriş Paneli";
             this.ResumeLayout(false);

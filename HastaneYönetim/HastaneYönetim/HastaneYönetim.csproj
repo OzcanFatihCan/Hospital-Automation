@@ -132,6 +132,7 @@
     <Compile Include="SekreterRandevuAyarForm.Designer.cs">
       <DependentUpon>SekreterRandevuAyarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlBaglantisi.cs" />
     <EmbeddedResource Include="AnaSayfaForm.resx">
       <DependentUpon>AnaSayfaForm.cs</DependentUpon>
     </EmbeddedResource>

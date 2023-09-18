@@ -17,3 +17,7 @@ D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\ob
 D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.DuyurularForm.resources
 D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.HastaBilgiDüzenleForm.resources
 D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.SekreterGirisForm.resources
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.SekreterBransAyarForm.resources
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.SekreterDoktorAyarForm.resources
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.SekreterDetayForm.resources
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.SekreterRandevuAyarForm.resources

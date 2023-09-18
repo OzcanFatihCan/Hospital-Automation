@@ -71,9 +71,9 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(187, 103);
             this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(188, 31);
             this.textBox1.TabIndex = 4;
+            this.textBox1.UseSystemPasswordChar = true;
             // 
             // LinkUyeOl
             // 
@@ -85,6 +85,7 @@
             this.LinkUyeOl.TabIndex = 5;
             this.LinkUyeOl.TabStop = true;
             this.LinkUyeOl.Text = "Üye Ol";
+            this.LinkUyeOl.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkUyeOl_LinkClicked);
             // 
             // BtnGirisYapHasta
             // 
@@ -96,6 +97,7 @@
             this.BtnGirisYapHasta.TabIndex = 6;
             this.BtnGirisYapHasta.Text = "Giriş Yap";
             this.BtnGirisYapHasta.UseVisualStyleBackColor = false;
+            this.BtnGirisYapHasta.Click += new System.EventHandler(this.BtnGirisYapHasta_Click);
             // 
             // label1
             // 
@@ -110,8 +112,10 @@
             // 
             // HastaGirisForm
             // 
+            this.AcceptButton = this.BtnGirisYapHasta;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(434, 211);
             this.Controls.Add(this.label1);
@@ -124,6 +128,7 @@
             this.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.MaximizeBox = false;
             this.Name = "HastaGirisForm";
             this.Text = "Hasta Giriş Paneli";
             this.ResumeLayout(false);

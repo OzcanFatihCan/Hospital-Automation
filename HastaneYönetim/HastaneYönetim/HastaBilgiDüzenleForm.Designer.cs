@@ -177,10 +177,11 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "Hasta Bilgi Güncelle";
             // 
-            // BilgiDüzenleForm
+            // HastaBilgiDüzenleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(434, 361);
             this.Controls.Add(this.label1);
@@ -200,7 +201,8 @@
             this.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.Name = "BilgiDüzenleForm";
+            this.MaximizeBox = false;
+            this.Name = "HastaBilgiDüzenleForm";
             this.Text = "Bilgileri Düzenle";
             this.ResumeLayout(false);
             this.PerformLayout();
