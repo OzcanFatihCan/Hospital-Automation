@@ -58,13 +58,14 @@
             this.BtnGirisYapSekreter.TabIndex = 12;
             this.BtnGirisYapSekreter.Text = "Giriş Yap";
             this.BtnGirisYapSekreter.UseVisualStyleBackColor = false;
+            this.BtnGirisYapSekreter.Click += new System.EventHandler(this.BtnGirisYapSekreter_Click);
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(187, 103);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(188, 31);
-            this.textBox1.TabIndex = 11;
+            this.textBox1.TabIndex = 2;
             this.textBox1.UseSystemPasswordChar = true;
             // 
             // maskedTextBox1
@@ -73,7 +74,7 @@
             this.maskedTextBox1.Mask = "00000000000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(188, 31);
-            this.maskedTextBox1.TabIndex = 10;
+            this.maskedTextBox1.TabIndex = 1;
             this.maskedTextBox1.ValidatingType = typeof(int);
             // 
             // label3
@@ -98,6 +99,7 @@
             // 
             // SekreterGirisForm
             // 
+            this.AcceptButton = this.BtnGirisYapSekreter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;

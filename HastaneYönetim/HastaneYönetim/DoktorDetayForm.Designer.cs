@@ -42,9 +42,9 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.BtnCikis = new System.Windows.Forms.Button();
             this.BtnDuyurular = new System.Windows.Forms.Button();
             this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -54,6 +54,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.LblDoktorBrans);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.LblDoktorAdSoyad);
@@ -164,16 +165,18 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 27);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(954, 451);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.BtnCikis);
             this.groupBox4.Controls.Add(this.BtnDuyurular);
             this.groupBox4.Controls.Add(this.BtnGuncelle);
             this.groupBox4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -184,27 +187,17 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hızlı Erişim";
             // 
-            // BtnCikis
-            // 
-            this.BtnCikis.BackColor = System.Drawing.Color.Purple;
-            this.BtnCikis.ForeColor = System.Drawing.Color.White;
-            this.BtnCikis.Location = new System.Drawing.Point(113, 71);
-            this.BtnCikis.Name = "BtnCikis";
-            this.BtnCikis.Size = new System.Drawing.Size(105, 85);
-            this.BtnCikis.TabIndex = 17;
-            this.BtnCikis.Text = "Çıkış";
-            this.BtnCikis.UseVisualStyleBackColor = false;
-            // 
             // BtnDuyurular
             // 
             this.BtnDuyurular.BackColor = System.Drawing.Color.Purple;
             this.BtnDuyurular.ForeColor = System.Drawing.Color.White;
             this.BtnDuyurular.Location = new System.Drawing.Point(6, 111);
             this.BtnDuyurular.Name = "BtnDuyurular";
-            this.BtnDuyurular.Size = new System.Drawing.Size(105, 85);
+            this.BtnDuyurular.Size = new System.Drawing.Size(212, 85);
             this.BtnDuyurular.TabIndex = 15;
             this.BtnDuyurular.Text = "Duyurular";
             this.BtnDuyurular.UseVisualStyleBackColor = false;
+            this.BtnDuyurular.Click += new System.EventHandler(this.BtnDuyurular_Click);
             // 
             // BtnGuncelle
             // 
@@ -212,10 +205,24 @@
             this.BtnGuncelle.ForeColor = System.Drawing.Color.White;
             this.BtnGuncelle.Location = new System.Drawing.Point(6, 26);
             this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(105, 85);
+            this.BtnGuncelle.Size = new System.Drawing.Size(212, 85);
             this.BtnGuncelle.TabIndex = 14;
             this.BtnGuncelle.Text = "Bilgi Düzenle";
             this.BtnGuncelle.UseVisualStyleBackColor = false;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Purple;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(271, 161);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(43, 33);
+            this.button1.TabIndex = 16;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DoktorDetayForm
             // 
@@ -234,6 +241,7 @@
             this.MaximizeBox = false;
             this.Name = "DoktorDetayForm";
             this.Text = "Doktor Paneli";
+            this.Load += new System.EventHandler(this.DoktorDetayForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -260,8 +268,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.RichTextBox RchSikayet;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button BtnCikis;
         private System.Windows.Forms.Button BtnDuyurular;
         private System.Windows.Forms.Button BtnGuncelle;
+        private System.Windows.Forms.Button button1;
     }
 }

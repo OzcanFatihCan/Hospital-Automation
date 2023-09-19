@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
 namespace HastaneYönetim
 {
     public partial class SekreterRandevuAyarForm : Form
@@ -15,6 +15,20 @@ namespace HastaneYönetim
         public SekreterRandevuAyarForm()
         {
             InitializeComponent();
+        }
+
+        SqlBaglantisi bgl=new SqlBaglantisi();
+        private void SekreterRandevuAyarForm_Load(object sender, EventArgs e)
+        {
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter("Select * From Tbl_Randevular", bgl.baglanti());
+            da1.Fill(dt1);
+            dataGridView1.DataSource = dt1;
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

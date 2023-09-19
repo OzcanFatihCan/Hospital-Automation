@@ -64,7 +64,7 @@
             this.CmbCinsiyet.Location = new System.Drawing.Point(195, 258);
             this.CmbCinsiyet.Name = "CmbCinsiyet";
             this.CmbCinsiyet.Size = new System.Drawing.Size(188, 31);
-            this.CmbCinsiyet.TabIndex = 34;
+            this.CmbCinsiyet.TabIndex = 6;
             // 
             // MskHastaTel
             // 
@@ -72,15 +72,14 @@
             this.MskHastaTel.Mask = "(999) 000-0000";
             this.MskHastaTel.Name = "MskHastaTel";
             this.MskHastaTel.Size = new System.Drawing.Size(188, 31);
-            this.MskHastaTel.TabIndex = 33;
+            this.MskHastaTel.TabIndex = 4;
             // 
             // TxtHastaSifre
             // 
             this.TxtHastaSifre.Location = new System.Drawing.Point(195, 219);
             this.TxtHastaSifre.Name = "TxtHastaSifre";
-            this.TxtHastaSifre.PasswordChar = '*';
             this.TxtHastaSifre.Size = new System.Drawing.Size(188, 31);
-            this.TxtHastaSifre.TabIndex = 32;
+            this.TxtHastaSifre.TabIndex = 5;
             // 
             // label6
             // 
@@ -104,16 +103,16 @@
             // 
             // TxtHastaSoyad
             // 
-            this.TxtHastaSoyad.Location = new System.Drawing.Point(195, 145);
+            this.TxtHastaSoyad.Location = new System.Drawing.Point(195, 101);
             this.TxtHastaSoyad.Name = "TxtHastaSoyad";
             this.TxtHastaSoyad.Size = new System.Drawing.Size(188, 31);
-            this.TxtHastaSoyad.TabIndex = 29;
+            this.TxtHastaSoyad.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label4.Location = new System.Drawing.Point(60, 148);
+            this.label4.Location = new System.Drawing.Point(60, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 23);
             this.label4.TabIndex = 28;
@@ -129,28 +128,29 @@
             this.BtnBilgiGuncelle.TabIndex = 27;
             this.BtnBilgiGuncelle.Text = "Güncelle";
             this.BtnBilgiGuncelle.UseVisualStyleBackColor = false;
+            this.BtnBilgiGuncelle.Click += new System.EventHandler(this.BtnBilgiGuncelle_Click);
             // 
             // TxtHastaAd
             // 
-            this.TxtHastaAd.Location = new System.Drawing.Point(195, 108);
+            this.TxtHastaAd.Location = new System.Drawing.Point(195, 64);
             this.TxtHastaAd.Name = "TxtHastaAd";
             this.TxtHastaAd.Size = new System.Drawing.Size(188, 31);
-            this.TxtHastaAd.TabIndex = 26;
+            this.TxtHastaAd.TabIndex = 1;
             // 
             // MskHastaTc
             // 
-            this.MskHastaTc.Location = new System.Drawing.Point(195, 71);
+            this.MskHastaTc.Location = new System.Drawing.Point(195, 141);
             this.MskHastaTc.Mask = "00000000000";
             this.MskHastaTc.Name = "MskHastaTc";
             this.MskHastaTc.Size = new System.Drawing.Size(188, 31);
-            this.MskHastaTc.TabIndex = 25;
+            this.MskHastaTc.TabIndex = 3;
             this.MskHastaTc.ValidatingType = typeof(int);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Location = new System.Drawing.Point(91, 111);
+            this.label3.Location = new System.Drawing.Point(91, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 23);
             this.label3.TabIndex = 24;
@@ -160,7 +160,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Location = new System.Drawing.Point(62, 71);
+            this.label2.Location = new System.Drawing.Point(62, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 23);
             this.label2.TabIndex = 23;
@@ -179,6 +179,7 @@
             // 
             // HastaBilgiDüzenleForm
             // 
+            this.AcceptButton = this.BtnBilgiGuncelle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -204,6 +205,7 @@
             this.MaximizeBox = false;
             this.Name = "HastaBilgiDüzenleForm";
             this.Text = "Bilgileri Düzenle";
+            this.Load += new System.EventHandler(this.HastaBilgiDüzenleForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

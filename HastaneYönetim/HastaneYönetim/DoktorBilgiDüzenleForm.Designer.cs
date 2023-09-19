@@ -48,19 +48,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Belong Sans ExtraBold", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(12, 5);
+            this.label1.Location = new System.Drawing.Point(2, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(411, 47);
+            this.label1.Size = new System.Drawing.Size(427, 47);
             this.label1.TabIndex = 50;
-            this.label1.Text = "Hasta Bilgi Güncelle";
+            this.label1.Text = "Doktor Bilgi Güncelle";
             // 
             // TxtDoktorSifre
             // 
             this.TxtDoktorSifre.Location = new System.Drawing.Point(195, 221);
             this.TxtDoktorSifre.Name = "TxtDoktorSifre";
-            this.TxtDoktorSifre.PasswordChar = '*';
             this.TxtDoktorSifre.Size = new System.Drawing.Size(188, 31);
-            this.TxtDoktorSifre.TabIndex = 46;
+            this.TxtDoktorSifre.TabIndex = 5;
             // 
             // label6
             // 
@@ -74,16 +73,16 @@
             // 
             // TxtDoktorSoyad
             // 
-            this.TxtDoktorSoyad.Location = new System.Drawing.Point(195, 145);
+            this.TxtDoktorSoyad.Location = new System.Drawing.Point(195, 103);
             this.TxtDoktorSoyad.Name = "TxtDoktorSoyad";
             this.TxtDoktorSoyad.Size = new System.Drawing.Size(188, 31);
-            this.TxtDoktorSoyad.TabIndex = 43;
+            this.TxtDoktorSoyad.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label4.Location = new System.Drawing.Point(49, 148);
+            this.label4.Location = new System.Drawing.Point(49, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 23);
             this.label4.TabIndex = 42;
@@ -99,28 +98,29 @@
             this.BtnBilgiGuncelle.TabIndex = 41;
             this.BtnBilgiGuncelle.Text = "Güncelle";
             this.BtnBilgiGuncelle.UseVisualStyleBackColor = false;
+            this.BtnBilgiGuncelle.Click += new System.EventHandler(this.BtnBilgiGuncelle_Click);
             // 
             // TxtDoktorAd
             // 
-            this.TxtDoktorAd.Location = new System.Drawing.Point(195, 108);
+            this.TxtDoktorAd.Location = new System.Drawing.Point(195, 64);
             this.TxtDoktorAd.Name = "TxtDoktorAd";
             this.TxtDoktorAd.Size = new System.Drawing.Size(188, 31);
-            this.TxtDoktorAd.TabIndex = 40;
+            this.TxtDoktorAd.TabIndex = 1;
             // 
             // MskDoktorTc
             // 
-            this.MskDoktorTc.Location = new System.Drawing.Point(195, 71);
+            this.MskDoktorTc.Location = new System.Drawing.Point(195, 142);
             this.MskDoktorTc.Mask = "00000000000";
             this.MskDoktorTc.Name = "MskDoktorTc";
             this.MskDoktorTc.Size = new System.Drawing.Size(188, 31);
-            this.MskDoktorTc.TabIndex = 39;
+            this.MskDoktorTc.TabIndex = 3;
             this.MskDoktorTc.ValidatingType = typeof(int);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Location = new System.Drawing.Point(80, 111);
+            this.label3.Location = new System.Drawing.Point(80, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 23);
             this.label3.TabIndex = 38;
@@ -130,7 +130,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Location = new System.Drawing.Point(62, 71);
+            this.label2.Location = new System.Drawing.Point(62, 145);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 23);
             this.label2.TabIndex = 37;
@@ -142,7 +142,7 @@
             this.CmbDoktorBrans.Location = new System.Drawing.Point(195, 183);
             this.CmbDoktorBrans.Name = "CmbDoktorBrans";
             this.CmbDoktorBrans.Size = new System.Drawing.Size(188, 31);
-            this.CmbDoktorBrans.TabIndex = 51;
+            this.CmbDoktorBrans.TabIndex = 4;
             // 
             // label5
             // 
@@ -156,6 +156,7 @@
             // 
             // DoktorBilgiDüzenleForm
             // 
+            this.AcceptButton = this.BtnBilgiGuncelle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -179,6 +180,7 @@
             this.MaximizeBox = false;
             this.Name = "DoktorBilgiDüzenleForm";
             this.Text = "Bilgileri Düzenle";
+            this.Load += new System.EventHandler(this.DoktorBilgiDüzenleForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
