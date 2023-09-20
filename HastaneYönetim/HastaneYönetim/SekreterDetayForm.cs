@@ -100,7 +100,7 @@ namespace HastaneYönetim
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
         }
 
         private void BtnDoktorPanel_Click(object sender, EventArgs e)

@@ -26,21 +26,21 @@ namespace HastaneYönetim
         {
             HastaGirisForm HastaGiris= new HastaGirisForm();
             HastaGiris.Show();
-            this.Hide();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             DoktorGirisForm DoktorGiris = new DoktorGirisForm();
             DoktorGiris.Show();
-            this.Hide();
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             SekreterGirisForm SekreterGiris=new SekreterGirisForm();
             SekreterGiris.Show();
-            this.Hide();
+            
         }
     }
 }
