@@ -19,6 +19,15 @@ namespace HastaneYönetim
         }
         SqlBaglantisi bgl=new SqlBaglantisi();
         public string tc;
+
+        void RandevuListele()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select * From Tbl_Randevular Where HastaTC=" + tc, bgl.baglanti());
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
         private void HastaDetayForm_Load(object sender, EventArgs e)
         {
             LblHastaTc.Text = tc;
@@ -36,10 +45,7 @@ namespace HastaneYönetim
             bgl.baglanti().Close();
 
             //randevu geçmişi
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * From Tbl_Randevular Where HastaTC="+tc,bgl.baglanti());
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            RandevuListele();
 
             //branşları Comboboxa çekme
             SqlCommand komut2 = new SqlCommand("Select BransAd From Tbl_Branslar",bgl.baglanti());
@@ -99,10 +105,7 @@ namespace HastaneYönetim
             bgl.baglanti().Close();
             MessageBox.Show("Randevu Alındı","Uyarı",MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //randevu geçmişi yenile
-            DataTable dt2 = new DataTable();
-            SqlDataAdapter da2 = new SqlDataAdapter("Select * From Tbl_Randevular Where HastaTC=" + tc, bgl.baglanti());
-            da2.Fill(dt2);
-            dataGridView1.DataSource = dt2;
+            RandevuListele();
 
         }
 

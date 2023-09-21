@@ -139,6 +139,7 @@
             // 
             // MskHastaTc
             // 
+            this.MskHastaTc.Enabled = false;
             this.MskHastaTc.Location = new System.Drawing.Point(195, 141);
             this.MskHastaTc.Mask = "00000000000";
             this.MskHastaTc.Name = "MskHastaTc";

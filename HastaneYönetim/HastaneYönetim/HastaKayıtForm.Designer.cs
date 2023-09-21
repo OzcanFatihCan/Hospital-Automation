@@ -135,7 +135,6 @@
             // 
             this.TxtHastaSifre.Location = new System.Drawing.Point(195, 213);
             this.TxtHastaSifre.Name = "TxtHastaSifre";
-            this.TxtHastaSifre.PasswordChar = '*';
             this.TxtHastaSifre.Size = new System.Drawing.Size(188, 31);
             this.TxtHastaSifre.TabIndex = 5;
             // 

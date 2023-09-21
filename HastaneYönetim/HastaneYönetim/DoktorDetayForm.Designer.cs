@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoktorDetayForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.LblDoktorBrans = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblDoktorAdSoyad = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.BtnDuyurular = new System.Windows.Forms.Button();
             this.BtnGuncelle = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -68,6 +68,19 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Doktor Bilgileri";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Purple;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(271, 161);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(43, 33);
+            this.button1.TabIndex = 16;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // LblDoktorBrans
             // 
@@ -137,8 +150,10 @@
             // 
             // RchSikayet
             // 
+            this.RchSikayet.Enabled = false;
             this.RchSikayet.Location = new System.Drawing.Point(103, 30);
             this.RchSikayet.Name = "RchSikayet";
+            this.RchSikayet.ReadOnly = true;
             this.RchSikayet.Size = new System.Drawing.Size(275, 154);
             this.RchSikayet.TabIndex = 1;
             this.RchSikayet.Text = "";
@@ -210,19 +225,6 @@
             this.BtnGuncelle.Text = "Bilgi Düzenle";
             this.BtnGuncelle.UseVisualStyleBackColor = false;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Purple;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(271, 161);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(43, 33);
-            this.button1.TabIndex = 16;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DoktorDetayForm
             // 

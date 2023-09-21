@@ -61,16 +61,23 @@ namespace HastaneYönetim
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            SqlCommand kaydetkomut = new SqlCommand("insert into Tbl_Randevular (RandevuTarih,RandevuSaat,RandevuBrans,RandevuDoktor) values (@a1,@a2,@a3,@a4)",bgl.baglanti());
-            kaydetkomut.Parameters.AddWithValue("@a1", MskTarih.Text);
-            kaydetkomut.Parameters.AddWithValue("@a2", MskSaat.Text);
-            kaydetkomut.Parameters.AddWithValue("@a3", CmbBrans.Text);
-            kaydetkomut.Parameters.AddWithValue("@a4", CmbDoktor.Text);
-            kaydetkomut.ExecuteNonQuery();
-            bgl.baglanti().Close();
-            MessageBox.Show("Randevu Oluşturuldu.");
+          
 
-            
+            if (MskTarih.Text!=""&& MskTarih.MaskCompleted && MskSaat.Text!="" && MskSaat.MaskCompleted && CmbBrans.Text!="" && CmbDoktor.Text!="")
+            {
+                SqlCommand kaydetkomut = new SqlCommand("insert into Tbl_Randevular (RandevuTarih,RandevuSaat,RandevuBrans,RandevuDoktor) values (@a1,@a2,@a3,@a4)", bgl.baglanti());
+                kaydetkomut.Parameters.AddWithValue("@a1", MskTarih.Text);
+                kaydetkomut.Parameters.AddWithValue("@a2", MskSaat.Text);
+                kaydetkomut.Parameters.AddWithValue("@a3", CmbBrans.Text);
+                kaydetkomut.Parameters.AddWithValue("@a4", CmbDoktor.Text);
+                kaydetkomut.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Randevu oluşturuldu","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Randevu için boş hücre bırakmayınız", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void CmbBrans_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,11 +98,18 @@ namespace HastaneYönetim
 
         private void BtnDuyuruOlustur_Click(object sender, EventArgs e)
         {
-            SqlCommand duyuruEkle = new SqlCommand("insert into Tbl_Duyurular (Duyuru) values (@d1)",bgl.baglanti());
-            duyuruEkle.Parameters.AddWithValue("@d1", RchDuyuru.Text);
-            duyuruEkle.ExecuteNonQuery() ;
-            bgl.baglanti().Close();
-            MessageBox.Show("Duyuru Oluşturuldu.");
+            if (RchDuyuru.Text!="")
+            {
+                SqlCommand duyuruEkle = new SqlCommand("insert into Tbl_Duyurular (Duyuru) values (@d1)", bgl.baglanti());
+                duyuruEkle.Parameters.AddWithValue("@d1", RchDuyuru.Text);
+                duyuruEkle.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                MessageBox.Show("Duyuru oluşturuldu.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Duyuru için metin girdisi yapınız");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -125,6 +139,14 @@ namespace HastaneYönetim
         {
             DuyurularForm Duyurular=new DuyurularForm();
             Duyurular.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CmbBrans.Text = "";
+            CmbDoktor.Text = "";
+            MskSaat.Text = "";
+            MskTarih.Text = "";
         }
     }
 }

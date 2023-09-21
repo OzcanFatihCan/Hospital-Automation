@@ -38,19 +38,28 @@ namespace HastaneYönetim
 
             bgl.baglanti().Close();
         }
-
+        
         private void BtnBilgiGuncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komutGüncelle = new SqlCommand("Update Tbl_Hastalar set HastaAd=@p1,HastaSoyad=@p2,HastaTelefon=@p3,HastaSifre=@p4,HastaCinsiyet=@p5 where HastaTC=@p6",bgl.baglanti());//update sorgularında mutlaka where yani şart kullan yoksa tüm kayıt güncellenir.!!!!!
-            komutGüncelle.Parameters.AddWithValue("@p1", TxtHastaAd.Text);
-            komutGüncelle.Parameters.AddWithValue("@p2", TxtHastaSoyad.Text);
-            komutGüncelle.Parameters.AddWithValue("@p3", MskHastaTel.Text);
-            komutGüncelle.Parameters.AddWithValue("@p4", TxtHastaSifre.Text);
-            komutGüncelle.Parameters.AddWithValue("@p5", CmbCinsiyet.Text);
-            komutGüncelle.Parameters.AddWithValue("@p6", MskHastaTc.Text);
-            komutGüncelle.ExecuteNonQuery();//insert, delete update komutlarında sqle işlenmesi için muhakkak kullan!
-            bgl.baglanti().Close();
-            MessageBox.Show("Bilgileriniz başarıyla güncellendi","Bilgi",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (TxtHastaAd.Text!=""&& TxtHastaSoyad.Text != "" && MskHastaTel.Text != "" && MskHastaTel.MaskCompleted &&  TxtHastaSifre.Text != "" && CmbCinsiyet.Text != "" && MskHastaTc.Text != "" )
+            {
+                SqlCommand komutGüncelle = new SqlCommand("Update Tbl_Hastalar set HastaAd=@p1,HastaSoyad=@p2,HastaTelefon=@p3,HastaSifre=@p4,HastaCinsiyet=@p5 where HastaTC=@p6", bgl.baglanti());//update sorgularında mutlaka where yani şart kullan yoksa tüm kayıt güncellenir.!!!!!
+                komutGüncelle.Parameters.AddWithValue("@p1", TxtHastaAd.Text);
+                komutGüncelle.Parameters.AddWithValue("@p2", TxtHastaSoyad.Text);
+                komutGüncelle.Parameters.AddWithValue("@p3", MskHastaTel.Text);
+                komutGüncelle.Parameters.AddWithValue("@p4", TxtHastaSifre.Text);
+                komutGüncelle.Parameters.AddWithValue("@p5", CmbCinsiyet.Text);
+                komutGüncelle.Parameters.AddWithValue("@p6", MskHastaTc.Text);
+                komutGüncelle.ExecuteNonQuery();//insert, delete update komutlarında sqle işlenmesi için muhakkak kullan!
+                bgl.baglanti().Close();
+                MessageBox.Show("Bilgileriniz başarıyla güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Lütfen boş hücre bırakmayınız.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+           
         }
     }
 }

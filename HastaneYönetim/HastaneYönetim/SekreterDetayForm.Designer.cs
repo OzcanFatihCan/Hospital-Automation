@@ -43,10 +43,10 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.BtnListe = new System.Windows.Forms.Button();
             this.BtnBransPanel = new System.Windows.Forms.Button();
             this.BtnDoktorPanel = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -57,6 +57,7 @@
             this.CmbDoktor = new System.Windows.Forms.ComboBox();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -203,6 +204,7 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 27);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(424, 230);
             this.dataGridView2.TabIndex = 0;
             // 
@@ -219,6 +221,18 @@
             this.groupBox6.TabIndex = 6;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Hızlı Erişim";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Purple;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(749, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(208, 40);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Duyurular";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // BtnListe
             // 
@@ -255,18 +269,6 @@
             this.BtnDoktorPanel.Text = "Doktor Paneli";
             this.BtnDoktorPanel.UseVisualStyleBackColor = false;
             this.BtnDoktorPanel.Click += new System.EventHandler(this.BtnDoktorPanel_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Purple;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(749, 30);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(208, 40);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Duyurular";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
             // 
@@ -353,6 +355,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.BtnKaydet);
             this.groupBox3.Controls.Add(this.CmbDoktor);
             this.groupBox3.Controls.Add(this.CmbBrans);
@@ -369,6 +372,18 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Randevu Oluştur";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Purple;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(117, 375);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(130, 40);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Temizle";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // SekreterDetayForm
             // 
@@ -434,5 +449,6 @@
         private System.Windows.Forms.ComboBox CmbDoktor;
         private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button3;
     }
 }

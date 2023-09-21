@@ -37,6 +37,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.TxtBransid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@
             this.TxtBransAd.Location = new System.Drawing.Point(106, 56);
             this.TxtBransAd.Name = "TxtBransAd";
             this.TxtBransAd.Size = new System.Drawing.Size(173, 31);
-            this.TxtBransAd.TabIndex = 26;
+            this.TxtBransAd.TabIndex = 1;
             // 
             // label6
             // 
@@ -106,6 +107,7 @@
             // 
             // TxtBransid
             // 
+            this.TxtBransid.Enabled = false;
             this.TxtBransid.Location = new System.Drawing.Point(106, 19);
             this.TxtBransid.Name = "TxtBransid";
             this.TxtBransid.Size = new System.Drawing.Size(173, 31);
@@ -121,6 +123,18 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Brans id:";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Purple;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(1, 93);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 86);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Temizle";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SekreterBransAyarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -128,6 +142,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(714, 191);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.BtnSil);
             this.Controls.Add(this.BtnEkle);
@@ -159,5 +174,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtBransid;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
