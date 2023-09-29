@@ -132,6 +132,7 @@
             this.Name = "HastaGirisForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hasta Giriş Paneli";
+            this.Load += new System.EventHandler(this.HastaGirisForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

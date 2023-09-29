@@ -43,5 +43,10 @@ namespace HastaneYönetim
             bgl.baglanti().Close();
 
         }
+
+        private void HastaGirisForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

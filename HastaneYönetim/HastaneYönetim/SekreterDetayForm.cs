@@ -112,10 +112,7 @@ namespace HastaneYönetim
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
+        
 
         private void BtnDoktorPanel_Click(object sender, EventArgs e)
         {
@@ -147,6 +144,21 @@ namespace HastaneYönetim
             CmbDoktor.Text = "";
             MskSaat.Text = "";
             MskTarih.Text = "";
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.Red;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.Transparent;
         }
     }
 }

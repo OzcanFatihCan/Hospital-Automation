@@ -89,12 +89,6 @@ namespace HastaneYönetim
             BilgiDüzenle.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-           
-        }
-
         private void BtnRandevuAl_Click(object sender, EventArgs e)
         {
             SqlCommand RandevuAl= new SqlCommand("Update Tbl_Randevular Set RandevuDurum=1,HastaTC=@p1,HastaSikayet=@p2 where Randevuid=@p3",bgl.baglanti());
@@ -114,6 +108,21 @@ namespace HastaneYönetim
             int secilen = dataGridView2.SelectedCells[0].RowIndex;
             Txtid.Text = dataGridView2.Rows[secilen].Cells[0].Value.ToString();
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.Red;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox1.BackColor = Color.Transparent;
         }
     }
 }
