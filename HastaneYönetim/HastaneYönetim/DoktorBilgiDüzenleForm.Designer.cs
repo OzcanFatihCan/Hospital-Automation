@@ -179,6 +179,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MaximizeBox = false;
             this.Name = "DoktorBilgiDüzenleForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bilgileri Düzenle";
             this.Load += new System.EventHandler(this.DoktorBilgiDüzenleForm_Load);
             this.ResumeLayout(false);

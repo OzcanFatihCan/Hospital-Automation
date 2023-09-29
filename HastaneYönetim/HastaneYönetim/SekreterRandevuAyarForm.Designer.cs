@@ -58,6 +58,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MaximizeBox = false;
             this.Name = "SekreterRandevuAyarForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Randevu Listesi";
             this.Load += new System.EventHandler(this.SekreterRandevuAyarForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

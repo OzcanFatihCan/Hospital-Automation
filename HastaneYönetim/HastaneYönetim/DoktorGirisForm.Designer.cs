@@ -116,6 +116,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MaximizeBox = false;
             this.Name = "DoktorGirisForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Doktor Giriş Paneli";
             this.ResumeLayout(false);
             this.PerformLayout();

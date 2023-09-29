@@ -221,6 +221,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MaximizeBox = false;
             this.Name = "SekreterDoktorAyarForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Doktor Düzenleme";
             this.Load += new System.EventHandler(this.SekreterDoktorAyarForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

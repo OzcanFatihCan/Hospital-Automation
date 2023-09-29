@@ -204,6 +204,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MaximizeBox = false;
             this.Name = "HastaKayıtForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hasta Kayıt";
             this.ResumeLayout(false);
             this.PerformLayout();

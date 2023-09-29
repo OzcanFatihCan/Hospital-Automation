@@ -297,6 +297,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MaximizeBox = false;
             this.Name = "HastaDetayForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hasta Paneli";
             this.Load += new System.EventHandler(this.HastaDetayForm_Load);
             this.groupBox1.ResumeLayout(false);
