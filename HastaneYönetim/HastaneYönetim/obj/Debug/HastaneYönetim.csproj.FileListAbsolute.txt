@@ -21,3 +21,10 @@ D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\ob
 D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.SekreterDoktorAyarForm.resources
 D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.SekreterDetayForm.resources
 D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.SekreterRandevuAyarForm.resources
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\bin\Debug\DataAccessLayer.dll
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\bin\Debug\EntityLayer.dll
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\bin\Debug\LogicLayer.dll
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\bin\Debug\DataAccessLayer.pdb
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\bin\Debug\EntityLayer.pdb
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\bin\Debug\LogicLayer.pdb
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\HastaneYönetim\obj\Debug\HastaneYönetim.csproj.CopyComplete

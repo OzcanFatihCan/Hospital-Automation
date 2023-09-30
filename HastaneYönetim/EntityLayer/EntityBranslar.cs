@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    internal class EntityBranslar
+    public class EntityBranslar
     {
         private byte bransid;
         private string bransAd;

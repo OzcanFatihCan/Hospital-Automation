@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    internal class EntityDuyurular
+    public class EntityDuyurular
     {
         private short duyuruid;
         private string duyuru;

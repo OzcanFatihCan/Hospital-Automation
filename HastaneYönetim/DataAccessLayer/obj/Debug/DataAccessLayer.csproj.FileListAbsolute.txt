@@ -1,0 +1,9 @@
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\bin\Debug\EntityLayer.dll
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\bin\Debug\EntityLayer.pdb
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

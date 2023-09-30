@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    internal class EntitySekreter
+    public class EntitySekreter
     {
         private byte sekreterid;
         private string sekreterAdSoyad;

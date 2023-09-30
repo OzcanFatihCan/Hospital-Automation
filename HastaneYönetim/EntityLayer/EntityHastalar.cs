@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    internal class EntityHastalar
+    public class EntityHastalar
     {
         private short hastaid;
         private string hastaAd;

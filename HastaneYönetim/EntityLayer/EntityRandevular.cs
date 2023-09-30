@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    internal class EntityRandevular
+    public class EntityRandevular
     {
         private int randevuid;
         private string randevuTarih;

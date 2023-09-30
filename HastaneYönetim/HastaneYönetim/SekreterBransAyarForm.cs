@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using EntityLayer;
+using DataAccessLayer;
+using LogicLayer;
 namespace HastaneYönetim
 {
     public partial class SekreterBransAyarForm : Form
@@ -18,14 +21,18 @@ namespace HastaneYönetim
         }
 
         SqlBaglantisi bgl = new SqlBaglantisi();
-
+        /*
         void BransCek()
         {
             DataTable dt1 = new DataTable();
             SqlDataAdapter da1 = new SqlDataAdapter("Select * From Tbl_Branslar", bgl.baglanti());
             da1.Fill(dt1);
             dataGridView1.DataSource = dt1;
-
+        }*/
+        void BransCek()
+        {
+            List<EntityBranslar> BransListesi = LogicBranslar.LLBransListesi();
+            dataGridView1.DataSource= BransListesi;
         }
         private void SekreterBransAyarForm_Load(object sender, EventArgs e)
         {
