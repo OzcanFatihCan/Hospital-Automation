@@ -20,6 +20,7 @@ namespace HastaneYönetim
         SqlBaglantisi bgl=new SqlBaglantisi();
         private void SekreterRandevuAyarForm_Load(object sender, EventArgs e)
         {
+
             DataTable dt1 = new DataTable();
             SqlDataAdapter da1 = new SqlDataAdapter("Select * From Tbl_Randevular", bgl.baglanti());
             da1.Fill(dt1);

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using EntityLayer;
+using LogicLayer;
 
 namespace HastaneYönetim
 {
@@ -17,13 +19,15 @@ namespace HastaneYönetim
         {
             InitializeComponent();
         }
-        SqlBaglantisi bgl = new SqlBaglantisi();    
         private void DuyurularForm_Load(object sender, EventArgs e)
         {
+            /*
             DataTable dt1 = new DataTable();
             SqlDataAdapter da1 = new SqlDataAdapter("Select * From Tbl_Duyurular", bgl.baglanti());
             da1.Fill(dt1);
-            dataGridView1.DataSource = dt1;
+            dataGridView1.DataSource = dt1;*/
+            List<EntityDuyurular> DuyuruListesi = LogicDuyurular.LLDuyuruListesi();
+            dataGridView1.DataSource = DuyuruListesi;
         }
     }
 }

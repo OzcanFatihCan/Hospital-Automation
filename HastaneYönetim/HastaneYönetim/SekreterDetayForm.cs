@@ -107,6 +107,7 @@ namespace HastaneYönetim
 
         private void BtnDuyuruOlustur_Click(object sender, EventArgs e)
         {
+            /*
             if (RchDuyuru.Text!="")
             {
                 SqlCommand duyuruEkle = new SqlCommand("insert into Tbl_Duyurular (Duyuru) values (@d1)", bgl.baglanti());
@@ -118,6 +119,23 @@ namespace HastaneYönetim
             else
             {
                 MessageBox.Show("Duyuru için metin girdisi yapınız");
+            }*/
+
+            EntityDuyurular ent = new EntityDuyurular();
+            ent.Duyuru = RchDuyuru.Text;
+            int result=LogicDuyurular.LLDuyuruEkle(ent);
+            if (result > 0)
+            {
+                MessageBox.Show("Ekleme başarıyla gerçekleştirildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+            }
+            else if (result == 0)
+            {
+                MessageBox.Show("Ekleme sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Boş duyuru eklenemez.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
