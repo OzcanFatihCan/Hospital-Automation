@@ -138,6 +138,7 @@
             // 
             // CmbDoktorBrans
             // 
+            this.CmbDoktorBrans.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDoktorBrans.FormattingEnabled = true;
             this.CmbDoktorBrans.Location = new System.Drawing.Point(195, 183);
             this.CmbDoktorBrans.Name = "CmbDoktorBrans";

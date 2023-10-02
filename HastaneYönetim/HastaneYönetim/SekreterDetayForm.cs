@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using EntityLayer;
+using LogicLayer;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HastaneYönetim
 {
@@ -36,10 +39,13 @@ namespace HastaneYönetim
 
             //branşları datagride çek
 
+            /*
             DataTable dt1=new DataTable();
             SqlDataAdapter da1 = new SqlDataAdapter("Select BransAd From Tbl_Branslar", bgl.baglanti());
             da1.Fill(dt1);
-            dataGridView1.DataSource= dt1;
+            dataGridView1.DataSource= dt1;*/
+            List<EntityBranslar> BransListesi = LogicBranslar.LLBransListesi();
+            dataGridView1.DataSource = BransListesi;
 
             //doktorları datagridviewe çek
 
@@ -49,13 +55,16 @@ namespace HastaneYönetim
             dataGridView2.DataSource = dt2;
 
             //branşları comboboxa çekme
+            /*
             SqlCommand BransCek = new SqlCommand("Select BransAd From Tbl_Branslar", bgl.baglanti());
             SqlDataReader dr2 = BransCek.ExecuteReader();//burada sqldeki veriler okunuyor.
             while (dr2.Read())
             {
                 CmbBrans.Items.Add(dr2[0]);
             }
-            bgl.baglanti().Close();
+            bgl.baglanti().Close();*/
+            List<string> bransAdListesi = LogicBranslar.BransAdListesi();
+            CmbBrans.DataSource = bransAdListesi;
 
         }
 

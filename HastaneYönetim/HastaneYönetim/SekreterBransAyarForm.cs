@@ -42,7 +42,7 @@ namespace HastaneYönetim
 
         private void BtnEkle_Click(object sender, EventArgs e)
         {
-           
+           /*
             if (TxtBransAd.Text!="")
             {
                 SqlCommand BransEkle = new SqlCommand("insert into Tbl_Branslar (BransAd) values (@b1)", bgl.baglanti());
@@ -56,6 +56,23 @@ namespace HastaneYönetim
             else
             {
                 MessageBox.Show("Lütfen eklemek istediğiniz branşı giriniz.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }*/
+
+            EntityBranslar ent =new EntityBranslar();
+            ent.BransAd = TxtBransAd.Text;
+            int result= LogicBranslar.LLBransEkle(ent);
+            if (result > 0)
+            {
+                MessageBox.Show("Ekleme başarıyla gerçekleştirildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                BransCek();
+            }
+            else if (result == 0)
+            {
+                MessageBox.Show("Ekleme sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Branş adı boş bırakılamaz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -69,26 +86,47 @@ namespace HastaneYönetim
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
-           
-            if (TxtBransAd.Text!="" && TxtBransid.Text!="")
+            /*
+             if (TxtBransAd.Text!="" && TxtBransid.Text!="")
+             {
+                 SqlCommand BransGuncelle = new SqlCommand("Update Tbl_Branslar Set BransAd=@b1 Where Bransid=@b2", bgl.baglanti());
+                 BransGuncelle.Parameters.AddWithValue("@b1", TxtBransAd.Text);
+                 BransGuncelle.Parameters.AddWithValue("@b2", TxtBransid.Text);
+                 BransGuncelle.ExecuteNonQuery();
+                 bgl.baglanti().Close();
+                 MessageBox.Show("Güncelleme başarılı", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 //branşları tekrar çekme
+                 BransCek();
+             }
+             else
+             {
+                 MessageBox.Show("Lütfen güncellemek istediğiniz branşı seçiniz", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+             }*/
+            if (TxtBransid.Text != "")
             {
-                SqlCommand BransGuncelle = new SqlCommand("Update Tbl_Branslar Set BransAd=@b1 Where Bransid=@b2", bgl.baglanti());
-                BransGuncelle.Parameters.AddWithValue("@b1", TxtBransAd.Text);
-                BransGuncelle.Parameters.AddWithValue("@b2", TxtBransid.Text);
-                BransGuncelle.ExecuteNonQuery();
-                bgl.baglanti().Close();
-                MessageBox.Show("Güncelleme başarılı", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //branşları tekrar çekme
-                BransCek();
+                EntityBranslar ent = new EntityBranslar();
+                ent.Bransid = byte.Parse(TxtBransid.Text);
+                ent.BransAd = TxtBransAd.Text;
+                bool result = LogicBranslar.LLBransGuncelle(ent);
+                if (result == true)
+                {
+                    MessageBox.Show("Güncelleme başarıyla gerçekleştirildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BransCek();
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen güncellemek istediğiniz branşı seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Lütfen güncellemek istediğiniz branşı seçiniz", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Lütfen güncellemek istediğiniz branşı seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void BtnSil_Click(object sender, EventArgs e)
         {
+            /*
             if (TxtBransAd.Text != "" && TxtBransid.Text != "")
             {
                 SqlCommand BransSil = new SqlCommand("Delete From Tbl_Branslar Where Bransid=@b1", bgl.baglanti());
@@ -102,6 +140,26 @@ namespace HastaneYönetim
             else
             {
                 MessageBox.Show("Lütfen silmek istediğiniz branşı seçiniz", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }*/
+            if (TxtBransid.Text!="")
+            {
+                EntityBranslar ent = new EntityBranslar();
+                ent.Bransid = byte.Parse(TxtBransid.Text);
+                bool result = LogicBranslar.LLBransSil(ent);
+                if (result == true)
+                {
+                    MessageBox.Show("Silme başarıyla gerçekleştirildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BransCek();
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen silmek istediğiniz branşı seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen silmek istediğiniz branşı seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 

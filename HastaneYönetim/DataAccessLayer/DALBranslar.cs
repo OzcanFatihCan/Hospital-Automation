@@ -42,14 +42,14 @@ namespace DataAccessLayer
             return komut2.ExecuteNonQuery();         
         }
         
-        public static bool BransSil(byte p)
+        public static bool BransSil(EntityBranslar ent)
         {
             SqlCommand komut3 = new SqlCommand("Delete From Tbl_Branslar Where Bransid=@b1",Baglanti.conn);
             if (komut3.Connection.State != ConnectionState.Open)
             {
                 komut3.Connection.Open();
             }
-            komut3.Parameters.AddWithValue("@b1",p);
+            komut3.Parameters.AddWithValue("@b1",ent.Bransid);
             return komut3.ExecuteNonQuery() > 0;
         }
 

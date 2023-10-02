@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using LogicLayer;
 
 namespace HastaneYönetim
 {
@@ -48,13 +49,8 @@ namespace HastaneYönetim
             RandevuListele();
 
             //branşları Comboboxa çekme
-            SqlCommand komut2 = new SqlCommand("Select BransAd From Tbl_Branslar",bgl.baglanti());
-            SqlDataReader dr2 = komut2.ExecuteReader();//burada sqldeki veriler okunuyor.
-            while (dr2.Read())
-            {
-                CmbBrans.Items.Add(dr2[0]);
-            }
-            bgl.baglanti().Close();
+            List<string> bransAdListesi = LogicBranslar.BransAdListesi();
+            CmbBrans.DataSource = bransAdListesi;
         }
 
         private void CmbBrans_SelectedIndexChanged(object sender, EventArgs e)

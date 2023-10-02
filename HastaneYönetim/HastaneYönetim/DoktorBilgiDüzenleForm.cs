@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using LogicLayer;
 
 namespace HastaneYönetim
 {
@@ -60,13 +61,8 @@ namespace HastaneYönetim
             bgl.baglanti().Close();
 
             //Hazır Branş getir
-            SqlCommand BransCek = new SqlCommand("Select BransAd From Tbl_Branslar", bgl.baglanti());
-            SqlDataReader dr2 = BransCek.ExecuteReader();
-            while (dr2.Read())
-            {
-                CmbDoktorBrans.Items.Add(dr2[0]);
-            }
-            bgl.baglanti().Close();
+            List<string> bransAdListesi = LogicBranslar.BransAdListesi();
+            CmbDoktorBrans.DataSource = bransAdListesi;
         }
     }
 }
