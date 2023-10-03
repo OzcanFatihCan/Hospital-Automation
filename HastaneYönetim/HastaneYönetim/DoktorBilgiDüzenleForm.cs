@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using LogicLayer;
+using EntityLayer;
 
 namespace HastaneYönetim
 {
@@ -45,9 +46,10 @@ namespace HastaneYönetim
 
         private void DoktorBilgiDüzenleForm_Load(object sender, EventArgs e)
         {
-            
+
             //tcsi ana formdan gelen doktorun bilgilerini düzenleme
-            MskDoktorTc.Text = TC;
+            //MskDoktorTc.Text = TC;
+            /*
             SqlCommand DoktorVeriCek=new SqlCommand("Select * From Tbl_Doktorlar Where DoktorTC=@p1",bgl.baglanti());
             DoktorVeriCek.Parameters.AddWithValue("@p1",MskDoktorTc.Text);
             SqlDataReader dr=DoktorVeriCek.ExecuteReader();
@@ -59,7 +61,18 @@ namespace HastaneYönetim
                 TxtDoktorSifre.Text = dr[5].ToString();
             }
             bgl.baglanti().Close();
-
+            */
+           List<EntityDoktorlar> Doktorgetir = LogicDoktorlar.LLDoktorListesi(TC);
+          
+                foreach (var item in Doktorgetir)
+                {
+                MskDoktorTc.Text = TC;
+                TxtDoktorAd.Text = item.DoktorAd;
+                TxtDoktorSoyad.Text = item.DoktorSoyad;
+                TxtDoktorSifre.Text = item.DoktorSifre;
+                CmbDoktorBrans.SelectedValue = item.DoktorBrans;
+                }
+              
             //Hazır Branş getir
             List<string> bransAdListesi = LogicBranslar.BransAdListesi();
             CmbDoktorBrans.DataSource = bransAdListesi;

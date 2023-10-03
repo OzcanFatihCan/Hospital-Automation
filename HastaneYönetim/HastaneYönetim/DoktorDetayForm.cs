@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using EntityLayer;
+using LogicLayer;
 
 namespace HastaneYönetim
 {
@@ -22,8 +24,8 @@ namespace HastaneYönetim
         public string TC;
         private void DoktorDetayForm_Load(object sender, EventArgs e)
         {
-            LblDoktorTc.Text = TC;
-
+            //LblDoktorTc.Text = TC;
+            /*
             //tc gelen doktorun ad soyad ve branş çek
             SqlCommand DoktorCek=new SqlCommand("Select DoktorAd,DoktorSoyad,DoktorBrans From Tbl_Doktorlar Where DoktorTC=@p1",bgl.baglanti());
             DoktorCek.Parameters.AddWithValue("@p1", LblDoktorTc.Text);
@@ -33,7 +35,16 @@ namespace HastaneYönetim
                 LblDoktorAdSoyad.Text = dr1[0]+" " + dr1[1];
                 LblDoktorBrans.Text = dr1[2].ToString();
             }
-            bgl.baglanti().Close();
+            bgl.baglanti().Close();*/
+            List<EntityDoktorlar> Doktorgetir = LogicDoktorlar.LLDoktorListesi(TC);
+            foreach (var item in Doktorgetir)
+            {
+                string ad = item.DoktorAd;
+                string soyad=item.DoktorSoyad;
+                LblDoktorAdSoyad.Text = ad +" "+ soyad;
+                LblDoktorBrans.Text = item.DoktorBrans;
+                LblDoktorTc.Text = TC;
+            }
 
             //Doktora ait randevuları çekme
             DataTable dt= new DataTable();
