@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using EntityLayer;
+using LogicLayer;
 
 namespace HastaneYönetim
 {
@@ -19,6 +21,7 @@ namespace HastaneYönetim
         }
         SqlBaglantisi bgl = new SqlBaglantisi();
 
+        //tcsiz doktor çekme işlemi hazırlanacak
         void DoktorCek()
         {
             DataTable dt1 = new DataTable();
@@ -78,6 +81,7 @@ namespace HastaneYönetim
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
+            /*
             if (MskTc.Text != "" && MskTc.MaskCompleted && TxtAd.Text != "" && TxtSoyad.Text != "" && CmbBrans.Text != "" && TxtSifre.Text != "") {
                 SqlCommand DoktorGuncelle = new SqlCommand("Update Tbl_Doktorlar Set DoktorAd=@d1,DoktorSoyad=@d2,DoktorBrans=@d3,DoktorSifre=@d4 Where DoktorTC=@d5", bgl.baglanti());
                 DoktorGuncelle.Parameters.AddWithValue("@d1", TxtAd.Text);
@@ -94,7 +98,23 @@ namespace HastaneYönetim
             else
             {
                 MessageBox.Show("Bilgileri güncellemek için boş hücre bırakmayınız", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }*/
+            EntityDoktorlar ent = new EntityDoktorlar();
+            ent.DoktorTC = MskTc.Text;
+            ent.DoktorAd = TxtAd.Text;
+            ent.DoktorSoyad = TxtSoyad.Text;
+            ent.DoktorBrans = CmbBrans.Text;
+            ent.DoktorSifre = TxtSifre.Text;
+            bool result = LogicDoktorlar.LLDoktorGuncelle(ent);
+            if (result == true)
+            {
+                MessageBox.Show("Başarıyla güncelleme yapıldı", "bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+                MessageBox.Show("Lütfen boş hücre bırakmayınız", "bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
 
         }
 

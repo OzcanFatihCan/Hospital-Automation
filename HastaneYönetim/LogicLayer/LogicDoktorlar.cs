@@ -19,6 +19,17 @@ namespace LogicLayer
                 return null;
             }
         }
+        public static bool LLDoktorGuncelle(EntityDoktorlar ent)
+        {
+            if (ent.DoktorAd!="" && ent.DoktorSoyad!="" && ent.DoktorTC!="" && ent.DoktorBrans!="" && ent.DoktorSifre!="")
+            {
+                return DALDoktorlar.DoktorGuncelle(ent);
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }

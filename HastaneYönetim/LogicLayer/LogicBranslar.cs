@@ -7,7 +7,7 @@ using EntityLayer;
 using DataAccessLayer;
 
 
-namespace LogicLayer
+namespace LogicLayer 
 {
     public class LogicBranslar
     {

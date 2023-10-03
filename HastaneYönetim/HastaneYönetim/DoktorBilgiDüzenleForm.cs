@@ -19,22 +19,37 @@ namespace HastaneYönetim
         {
             InitializeComponent();
         }
-        SqlBaglantisi bgl=new SqlBaglantisi();
+        //SqlBaglantisi bgl=new SqlBaglantisi();
         public string TC;
 
         private void BtnBilgiGuncelle_Click(object sender, EventArgs e)
         {
-           
-            if (TxtDoktorAd.Text!=""&&TxtDoktorSoyad.Text!=""&&CmbDoktorBrans.Text!=""&&TxtDoktorSifre.Text!=""&&MskDoktorTc.Text!="")
+            /*
+             if (TxtDoktorAd.Text!=""&&TxtDoktorSoyad.Text!=""&&CmbDoktorBrans.Text!=""&&TxtDoktorSifre.Text!=""&&MskDoktorTc.Text!="")
+             {
+                 SqlCommand DoktorGuncelle = new SqlCommand("Update Tbl_Doktorlar Set DoktorAd=@p1,DoktorSoyad=@p2,DoktorBrans=@p3,DoktorSifre=@p4 Where DoktorTC=@p5", bgl.baglanti());
+                 DoktorGuncelle.Parameters.AddWithValue("@p1", TxtDoktorAd.Text);
+                 DoktorGuncelle.Parameters.AddWithValue("@p2", TxtDoktorSoyad.Text);
+                 DoktorGuncelle.Parameters.AddWithValue("@p3", CmbDoktorBrans.Text);
+                 DoktorGuncelle.Parameters.AddWithValue("@p4", TxtDoktorSifre.Text);
+                 DoktorGuncelle.Parameters.AddWithValue("@p5", MskDoktorTc.Text);
+                 DoktorGuncelle.ExecuteNonQuery();
+                 bgl.baglanti().Close();
+                 MessageBox.Show("Başarıyla güncelleme yapıldı", "bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+             }
+             else
+             {
+                 MessageBox.Show("Lütfen boş hücre bırakmayınız", "bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+             }*/
+            EntityDoktorlar ent = new EntityDoktorlar();
+            ent.DoktorTC = MskDoktorTc.Text;
+            ent.DoktorAd = TxtDoktorAd.Text;
+            ent.DoktorSoyad = TxtDoktorSoyad.Text;
+            ent.DoktorBrans = CmbDoktorBrans.Text;
+            ent.DoktorSifre = TxtDoktorSifre.Text;
+            bool result= LogicDoktorlar.LLDoktorGuncelle(ent);
+            if(result == true)
             {
-                SqlCommand DoktorGuncelle = new SqlCommand("Update Tbl_Doktorlar Set DoktorAd=@p1,DoktorSoyad=@p2,DoktorBrans=@p3,DoktorSifre=@p4 Where DoktorTC=@p5", bgl.baglanti());
-                DoktorGuncelle.Parameters.AddWithValue("@p1", TxtDoktorAd.Text);
-                DoktorGuncelle.Parameters.AddWithValue("@p2", TxtDoktorSoyad.Text);
-                DoktorGuncelle.Parameters.AddWithValue("@p3", CmbDoktorBrans.Text);
-                DoktorGuncelle.Parameters.AddWithValue("@p4", TxtDoktorSifre.Text);
-                DoktorGuncelle.Parameters.AddWithValue("@p5", MskDoktorTc.Text);
-                DoktorGuncelle.ExecuteNonQuery();
-                bgl.baglanti().Close();
                 MessageBox.Show("Başarıyla güncelleme yapıldı", "bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
