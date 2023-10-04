@@ -48,11 +48,13 @@ namespace HastaneYönetim
             dataGridView1.DataSource = BransListesi;
 
             //doktorları datagridviewe çek
-
+            
             DataTable dt2 = new DataTable();
             SqlDataAdapter da2 = new SqlDataAdapter("Select (DoktorAd+' '+DoktorSoyad) as 'Doktorlar',DoktorBrans,DoktorTC From Tbl_Doktorlar", bgl.baglanti());
             da2.Fill(dt2);
             dataGridView2.DataSource = dt2;
+           
+
 
             //branşları comboboxa çekme
             /*
@@ -95,6 +97,7 @@ namespace HastaneYönetim
             CmbDoktor.Items.Clear();
             CmbDoktor.Text = "";
             //seçilen branşa göre doktor çekme
+            /*
             SqlCommand DoktorCek = new SqlCommand("Select DoktorAd,DoktorSoyad From Tbl_Doktorlar Where DoktorBrans=@p1", bgl.baglanti());
             DoktorCek.Parameters.AddWithValue("@p1", CmbBrans.Text);
             SqlDataReader dr3 = DoktorCek.ExecuteReader();
@@ -102,7 +105,13 @@ namespace HastaneYönetim
             {
                 CmbDoktor.Items.Add(dr3[0] + " " + dr3[1]);
             }
-            bgl.baglanti().Close();
+            bgl.baglanti().Close();*/
+            List<EntityDoktorlar> BransliDoktorGetir = LogicDoktorlar.LLBransliDoktor(CmbBrans.Text);
+            foreach (var item in BransliDoktorGetir)
+            {
+                CmbDoktor.Items.Add(item.DoktorAd + " " + item.DoktorSoyad);
+            }
+
         }
 
         private void BtnDuyuruOlustur_Click(object sender, EventArgs e)

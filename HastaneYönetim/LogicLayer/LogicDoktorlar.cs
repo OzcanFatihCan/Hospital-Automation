@@ -19,6 +19,19 @@ namespace LogicLayer
                 return null;
             }
         }
+        
+        public static List<EntityDoktorlar> LLBransliDoktor(string brans)
+        {
+            if (brans!="")
+            {
+                return DALDoktorlar.BransliDoktorCek(brans);
+            }
+            else
+            {
+                return null; 
+            }
+        }
+
         public static bool LLDoktorGuncelle(EntityDoktorlar ent)
         {
             if (ent.DoktorAd!="" && ent.DoktorSoyad!="" && ent.DoktorTC!="" && ent.DoktorBrans!="" && ent.DoktorSifre!="")

@@ -36,6 +36,25 @@ namespace DataAccessLayer
             return DoktorGetir;
         }
 
+        public static List<EntityDoktorlar> BransliDoktorCek(string brans)
+        {
+            List<EntityDoktorlar> DoktorGetir = new List<EntityDoktorlar>();
+            //seçilen branşa göre doktor çekme
+            SqlCommand komut6 = new SqlCommand("Select DoktorAd,DoktorSoyad From Tbl_Doktorlar Where DoktorBrans=@p1", Baglanti.conn);
+            komut6.Parameters.AddWithValue("@p1", brans);
+            SqlDataReader dr3 = komut6.ExecuteReader();
+            while(dr3.Read())
+            {
+                EntityDoktorlar ent= new EntityDoktorlar();
+                ent.DoktorAd = dr3["DoktorAd"].ToString();
+                ent.DoktorSoyad = dr3["DoktorSoyad"].ToString();
+                DoktorGetir.Add(ent);
+            }
+            dr3.Close();
+            return DoktorGetir;
+        }
+
+
         public static List<EntityDoktorlar> DoktorCekTam() {
             List<EntityDoktorlar> DoktorCagir=new List<EntityDoktorlar>();
             SqlCommand komut5=new SqlCommand("Select * From Tbl_Doktorlar",Baglanti.conn);
@@ -58,6 +77,29 @@ namespace DataAccessLayer
             dr2.Close();
             return DoktorCagir;
         }
+        /*
+        public static List<EntityDoktorlar> DoktorCekS()
+        {
+            List<EntityDoktorlar> DoktorGetir = new List<EntityDoktorlar>();
+            SqlCommand komut7 = new SqlCommand("Select (DoktorAd+' '+DoktorSoyad) as 'Doktorlar',DoktorBrans,DoktorTC From Tbl_Doktorlar", Baglanti.conn);
+            if (komut7.Connection.State != ConnectionState.Open)
+            {
+                komut7.Connection.Open();
+            }
+            SqlDataReader dr4=komut7.ExecuteReader();
+            while (dr4.Read())
+            {
+                EntityDoktorlar ent = new EntityDoktorlar();
+                ent.DoktorAd = dr4["DoktorAd"].ToString();
+                ent.DoktorSoyad = dr4["DoktorSoyad"].ToString();
+                ent.DoktorBrans = dr4["DoktorBrans"].ToString();
+                ent.DoktorTC = dr4["DoktorTC"].ToString();
+                DoktorGetir.Add(ent);
+            }
+            dr4.Close();
+            return DoktorGetir;
+        }
+        */
 
         public static bool DoktorGuncelle(EntityDoktorlar ent)
         {
