@@ -66,6 +66,7 @@
             // 
             // CmbBrans
             // 
+            this.CmbBrans.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbBrans.FormattingEnabled = true;
             this.CmbBrans.Location = new System.Drawing.Point(83, 97);
             this.CmbBrans.Name = "CmbBrans";

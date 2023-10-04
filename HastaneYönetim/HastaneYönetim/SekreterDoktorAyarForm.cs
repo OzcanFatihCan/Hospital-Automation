@@ -19,15 +19,19 @@ namespace HastaneYönetim
         {
             InitializeComponent();
         }
-        SqlBaglantisi bgl = new SqlBaglantisi();
+        //SqlBaglantisi bgl = new SqlBaglantisi();
 
         //tcsiz doktor çekme işlemi hazırlanacak
         void DoktorCek()
         {
+            /*
             DataTable dt1 = new DataTable();
             SqlDataAdapter da1 = new SqlDataAdapter("Select * From Tbl_Doktorlar", bgl.baglanti());
             da1.Fill(dt1);
-            dataGridView1.DataSource = dt1;
+            dataGridView1.DataSource = dt1;*/
+
+            List<EntityDoktorlar> DoktorListesi = LogicDoktorlar.LLDoktorGetir();
+            dataGridView1.DataSource = DoktorListesi;
         }
 
         private void SekreterDoktorAyarForm_Load(object sender, EventArgs e)
@@ -35,8 +39,7 @@ namespace HastaneYönetim
             //doktorları datagridviewe çek
 
             DoktorCek();
-
-
+            /*
             //branşları comboboxa çekme
             SqlCommand BransCek = new SqlCommand("Select BransAd From Tbl_Branslar", bgl.baglanti());
             SqlDataReader dr1 = BransCek.ExecuteReader();//burada sqldeki veriler okunuyor.
@@ -44,11 +47,15 @@ namespace HastaneYönetim
             {
                 CmbBrans.Items.Add(dr1[0]);
             }
-            bgl.baglanti().Close();
+            bgl.baglanti().Close();*/
+
+            List<string> bransAdListesi = LogicBranslar.BransAdListesi();
+            CmbBrans.DataSource = bransAdListesi;
         }
 
         private void BtnEkle_Click(object sender, EventArgs e)
-        {  
+        {
+            /*
             if (MskTc.Text!="" && MskTc.MaskCompleted && TxtAd.Text!="" && TxtSoyad.Text!="" && CmbBrans.Text!="" && TxtSifre.Text!="")
             {
                 SqlCommand DoktorEkle = new SqlCommand("insert into Tbl_Doktorlar (DoktorAd,DoktorSoyad,DoktorBrans,DoktorTC,DoktorSifre) values (@d1,@d2,@d3,@d4,@d5)", bgl.baglanti());
@@ -66,17 +73,40 @@ namespace HastaneYönetim
             else
             {
                 MessageBox.Show("Doktor eklemek için boş hücre bırakmayınız ", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }*/
+            EntityDoktorlar ent = new EntityDoktorlar();
+            ent.DoktorAd = TxtAd.Text;
+            ent.DoktorSoyad = TxtSoyad.Text;
+            ent.DoktorSifre = TxtSifre.Text;
+            ent.DoktorTC=MskTc.Text;
+            ent.DoktorBrans = CmbBrans.Text;
+            int result = LogicDoktorlar.LLDoktorEkle(ent);
+
+            if (result > 0)
+            {
+                MessageBox.Show("Ekleme başarıyla gerçekleştirildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DoktorCek();
             }
+            else if (result == 0)
+            {
+                MessageBox.Show("Ekleme sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Hücreleri boş bırakmayınız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int secilen = dataGridView1.SelectedCells[0].RowIndex;//seçilen hücrelerin içerisindeki sıfırıncı indexe göre satır indexi al
-            TxtAd.Text = dataGridView1.Rows[secilen].Cells[1].Value.ToString();
-            TxtSoyad.Text = dataGridView1.Rows[secilen].Cells[2].Value.ToString();
-            CmbBrans.Text = dataGridView1.Rows[secilen].Cells[3].Value.ToString();
-            MskTc.Text = dataGridView1.Rows[secilen].Cells[4].Value.ToString();
-            TxtSifre.Text = dataGridView1.Rows[secilen].Cells[5].Value.ToString();
+            //int secilen = dataGridView1.SelectedCells[0].RowIndex;//seçilen hücrelerin içerisindeki sıfırıncı indexe göre satır indexi al
+            TxtAd.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            TxtSoyad.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            CmbBrans.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            MskTc.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            TxtSifre.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
@@ -109,6 +139,7 @@ namespace HastaneYönetim
             if (result == true)
             {
                 MessageBox.Show("Başarıyla güncelleme yapıldı", "bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DoktorCek();
             }
             else
             {
@@ -120,7 +151,7 @@ namespace HastaneYönetim
 
         private void BtnSil_Click(object sender, EventArgs e)
         {
-            if (MskTc.Text != "" && MskTc.MaskCompleted && TxtAd.Text != "" && TxtSoyad.Text != "" && CmbBrans.Text != "" && TxtSifre.Text != "") {
+            /*if (MskTc.Text != "" && MskTc.MaskCompleted && TxtAd.Text != "" && TxtSoyad.Text != "" && CmbBrans.Text != "" && TxtSifre.Text != "") {
                 SqlCommand DoktorSil = new SqlCommand("Delete From Tbl_Doktorlar Where DoktorTC=@d1", bgl.baglanti());
                 DoktorSil.Parameters.AddWithValue("@d1", MskTc.Text);
                 DoktorSil.ExecuteNonQuery();
@@ -132,6 +163,28 @@ namespace HastaneYönetim
             else
             {
                 MessageBox.Show("Kaydı silmek için seçim yapınız", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }*/
+
+            
+            if (MskTc.Text != "")
+            {
+                EntityDoktorlar ent = new EntityDoktorlar();
+                ent.DoktorTC = MskTc.Text;
+                bool result = LogicDoktorlar.LLDoktorSil(ent);
+                if (result == true)
+                {
+                    MessageBox.Show("Silme başarıyla gerçekleştirildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DoktorCek();
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen silmek istediğiniz doktoru seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen silmek istediğiniz doktoru seçiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 

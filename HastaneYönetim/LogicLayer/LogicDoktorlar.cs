@@ -31,5 +31,41 @@ namespace LogicLayer
             }
         }
 
+        public static int LLDoktorEkle(EntityDoktorlar ent)
+        {
+            if (ent.DoktorAd != "" && ent.DoktorSoyad != "" && ent.DoktorTC != "" && ent.DoktorBrans != "" && ent.DoktorSifre != "")
+            {
+                return DALDoktorlar.DoktorEkle(ent);
+            }
+            else
+            { return -1; }
+        }
+
+        public static List<EntityDoktorlar> LLDoktorGetir()
+        {
+            return DALDoktorlar.DoktorCekTam();
+        }
+
+        public static bool LLDoktorSil(EntityDoktorlar p)
+        {
+            if (p.DoktorTC != "")
+            {
+                try
+                {
+                    return DALDoktorlar.DoktorSil(p);
+                }
+                catch (Exception)
+                {
+
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
     }
 }
