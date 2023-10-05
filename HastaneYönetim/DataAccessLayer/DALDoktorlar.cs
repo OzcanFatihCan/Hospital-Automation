@@ -77,10 +77,10 @@ namespace DataAccessLayer
             dr2.Close();
             return DoktorCagir;
         }
-        /*
-        public static List<EntityDoktorlar> DoktorCekS()
+        
+        public static List<EntityDoktorlarS> DoktorCekS()
         {
-            List<EntityDoktorlar> DoktorGetir = new List<EntityDoktorlar>();
+            List<EntityDoktorlarS> DoktorGetir = new List<EntityDoktorlarS>();
             SqlCommand komut7 = new SqlCommand("Select (DoktorAd+' '+DoktorSoyad) as 'Doktorlar',DoktorBrans,DoktorTC From Tbl_Doktorlar", Baglanti.conn);
             if (komut7.Connection.State != ConnectionState.Open)
             {
@@ -89,9 +89,8 @@ namespace DataAccessLayer
             SqlDataReader dr4=komut7.ExecuteReader();
             while (dr4.Read())
             {
-                EntityDoktorlar ent = new EntityDoktorlar();
-                ent.DoktorAd = dr4["DoktorAd"].ToString();
-                ent.DoktorSoyad = dr4["DoktorSoyad"].ToString();
+                EntityDoktorlarS ent = new EntityDoktorlarS();
+                ent.Doktorlar = dr4["Doktorlar"].ToString();
                 ent.DoktorBrans = dr4["DoktorBrans"].ToString();
                 ent.DoktorTC = dr4["DoktorTC"].ToString();
                 DoktorGetir.Add(ent);
@@ -99,7 +98,7 @@ namespace DataAccessLayer
             dr4.Close();
             return DoktorGetir;
         }
-        */
+        
 
         public static bool DoktorGuncelle(EntityDoktorlar ent)
         {
@@ -142,8 +141,5 @@ namespace DataAccessLayer
             komut4.Parameters.AddWithValue("@d1", ent.DoktorTC);
             return komut4.ExecuteNonQuery() > 0;
         }
-
-
-
     }
 }

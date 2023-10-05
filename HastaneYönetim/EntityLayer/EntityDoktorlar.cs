@@ -23,4 +23,14 @@ namespace EntityLayer
         public string DoktorSifre { get => doktorSifre; set => doktorSifre = value; }
 
     }
+    public class EntityDoktorlarS
+    {
+        private string doktorlar;
+        private string doktorBrans;
+        private string doktorTC;
+       
+        public string Doktorlar { get => doktorlar; set => doktorlar = value; }
+        public string DoktorBrans { get => doktorBrans; set => doktorBrans = value; }
+        public string DoktorTC { get => doktorTC; set => doktorTC = value; }
+    }
 }

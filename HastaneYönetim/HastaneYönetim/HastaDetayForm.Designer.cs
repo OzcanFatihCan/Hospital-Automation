@@ -184,6 +184,7 @@
             // 
             // CmbDoktor
             // 
+            this.CmbDoktor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDoktor.FormattingEnabled = true;
             this.CmbDoktor.Location = new System.Drawing.Point(90, 123);
             this.CmbDoktor.Name = "CmbDoktor";

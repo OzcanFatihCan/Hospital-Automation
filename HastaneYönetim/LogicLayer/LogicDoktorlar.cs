@@ -32,6 +32,16 @@ namespace LogicLayer
             }
         }
 
+        public static List<EntityDoktorlarS> LLDokorCek()
+        {       
+            return DALDoktorlar.DoktorCekS();           
+        }
+
+        public static List<EntityDoktorlar> LLDoktorGetir()
+        {
+            return DALDoktorlar.DoktorCekTam();
+        }
+
         public static bool LLDoktorGuncelle(EntityDoktorlar ent)
         {
             if (ent.DoktorAd!="" && ent.DoktorSoyad!="" && ent.DoktorTC!="" && ent.DoktorBrans!="" && ent.DoktorSifre!="")
@@ -54,11 +64,7 @@ namespace LogicLayer
             { return -1; }
         }
 
-        public static List<EntityDoktorlar> LLDoktorGetir()
-        {
-            return DALDoktorlar.DoktorCekTam();
-        }
-
+      
         public static bool LLDoktorSil(EntityDoktorlar p)
         {
             if (p.DoktorTC != "")

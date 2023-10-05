@@ -9,7 +9,7 @@ using DataAccessLayer;
 
 namespace LogicLayer 
 {
-    public class LogicBranslar
+    public class LogicBranslar 
     {
         public static List<EntityBranslar> LLBransListesi()
         {

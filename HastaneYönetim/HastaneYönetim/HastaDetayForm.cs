@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using LogicLayer;
+using EntityLayer;
 
 namespace HastaneYönetim
 {
@@ -59,6 +60,7 @@ namespace HastaneYönetim
             CmbDoktor.Text = "";
             Txtid.Text = "";
             //seçilen branşa göre doktor çekme
+            /*
             SqlCommand komut3 = new SqlCommand("Select DoktorAd,DoktorSoyad From Tbl_Doktorlar Where DoktorBrans=@p1", bgl.baglanti());
             komut3.Parameters.AddWithValue("@p1",CmbBrans.Text);
             SqlDataReader dr3= komut3.ExecuteReader();
@@ -66,7 +68,13 @@ namespace HastaneYönetim
             {
                 CmbDoktor.Items.Add(dr3[0]+" " + dr3[1]);
             }
-            bgl.baglanti().Close();
+            bgl.baglanti().Close();*/
+
+            List<EntityDoktorlar> BransliDoktorGetir = LogicDoktorlar.LLBransliDoktor(CmbBrans.Text);
+            foreach (var item in BransliDoktorGetir)
+            {
+                CmbDoktor.Items.Add(item.DoktorAd + " " + item.DoktorSoyad);
+            }
         }
 
         private void CmbDoktor_SelectedIndexChanged(object sender, EventArgs e)

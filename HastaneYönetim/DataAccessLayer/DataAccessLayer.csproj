@@ -45,6 +45,7 @@
     <Compile Include="DALBranslar.cs" />
     <Compile Include="DALDoktorlar.cs" />
     <Compile Include="DALDuyurular.cs" />
+    <Compile Include="DALRandevular.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

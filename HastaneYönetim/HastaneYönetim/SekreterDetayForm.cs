@@ -44,16 +44,23 @@ namespace HastaneYönetim
             SqlDataAdapter da1 = new SqlDataAdapter("Select BransAd From Tbl_Branslar", bgl.baglanti());
             da1.Fill(dt1);
             dataGridView1.DataSource= dt1;*/
+
+            //branşları datagride çek
             List<EntityBranslar> BransListesi = LogicBranslar.LLBransListesi();
             dataGridView1.DataSource = BransListesi;
 
             //doktorları datagridviewe çek
-            
+            /*
             DataTable dt2 = new DataTable();
             SqlDataAdapter da2 = new SqlDataAdapter("Select (DoktorAd+' '+DoktorSoyad) as 'Doktorlar',DoktorBrans,DoktorTC From Tbl_Doktorlar", bgl.baglanti());
             da2.Fill(dt2);
-            dataGridView2.DataSource = dt2;
-           
+            dataGridView2.DataSource = dt2;*/
+
+            //doktorları datagridviewe çek
+            List<EntityDoktorlarS> Doktorlar = LogicDoktorlar.LLDokorCek();
+            dataGridView2.DataSource = Doktorlar;
+
+
 
 
             //branşları comboboxa çekme
@@ -65,6 +72,8 @@ namespace HastaneYönetim
                 CmbBrans.Items.Add(dr2[0]);
             }
             bgl.baglanti().Close();*/
+
+            //branşları comboboxa çekme
             List<string> bransAdListesi = LogicBranslar.BransAdListesi();
             CmbBrans.DataSource = bransAdListesi;
 

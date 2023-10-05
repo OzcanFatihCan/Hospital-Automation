@@ -14,7 +14,7 @@ namespace EntityLayer
         private string randevuBrans;
         private string randevuDoktor;
         private bool randevuDurum;
-        private char hastaTC;
+        private string hastaTC;
         private string hastaSikayet;
 
         public int Randevuid { get => randevuid; set => randevuid = value; }
@@ -23,7 +23,7 @@ namespace EntityLayer
         public string RandevuBrans { get => randevuBrans; set => randevuBrans = value; }
         public string RandevuDoktor { get => randevuDoktor; set => randevuDoktor = value; }
         public bool RandevuDurum { get => randevuDurum; set => randevuDurum = value; }
-        public char HastaTC { get => hastaTC; set => hastaTC = value; }
+        public string HastaTC { get => hastaTC; set => hastaTC = value; }
         public string HastaSikayet { get => hastaSikayet; set => hastaSikayet = value; }
     }
 }
