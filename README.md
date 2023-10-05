@@ -8,7 +8,7 @@ Bu adımdan sonra DB içerisindekileri, SQL Server Management Studio uygulaması
 
 Eğer kurulum konusunda sorun yaşarsanız bana mail adresimden ulaşabilirsiniz.
 
-![image](https://github.com/OzcanFatihCan/Hospital-Automation/assets/93872480/145c6b38-b9fa-42cb-81c0-20780747663d)
+![image](https://github.com/OzcanFatihCan/Hospital-Automation/assets/93872480/e72c1865-c1fb-401d-9d50-577d124bf4d4)
 ![image](https://github.com/OzcanFatihCan/Hospital-Automation/assets/93872480/2189eaee-88da-4c71-a007-61d4cb10fe9c)
 ![image](https://github.com/OzcanFatihCan/Hospital-Automation/assets/93872480/4abdcd54-8a31-426f-a3b4-cdbece3fd315)
 ![image](https://github.com/OzcanFatihCan/Hospital-Automation/assets/93872480/77f50ae4-c971-4540-8a6a-8750aff65581)
