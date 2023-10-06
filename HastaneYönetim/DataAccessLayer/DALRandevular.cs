@@ -37,6 +37,21 @@ namespace DataAccessLayer
             return Randevular;
         }
 
+        public static int RandevuOlustur(EntityRandevular e)
+        {
+            SqlCommand komut2 = new SqlCommand("insert into Tbl_Randevular (RandevuTarih,RandevuSaat,RandevuBrans,RandevuDoktor) values (@a1,@a2,@a3,@a4)",Baglanti.conn);
+            if (komut2.Connection.State != ConnectionState.Open)
+            {
+                komut2.Connection.Open();
+            }
+            komut2.Parameters.AddWithValue("@a1",e.RandevuTarih);
+            komut2.Parameters.AddWithValue("@a2", e.RandevuSaat);
+            komut2.Parameters.AddWithValue("@a3", e.RandevuBrans);
+            komut2.Parameters.AddWithValue("@a4", e.RandevuDoktor);
+
+            return komut2.ExecuteNonQuery();
+        }
+
 
     }
 }

@@ -80,9 +80,7 @@ namespace HastaneYönetim
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
-        {
-          
-
+        {   /*
             if (MskTarih.Text!=""&& MskTarih.MaskCompleted && MskSaat.Text!="" && MskSaat.MaskCompleted && CmbBrans.Text!="" && CmbDoktor.Text!="")
             {
                 SqlCommand kaydetkomut = new SqlCommand("insert into Tbl_Randevular (RandevuTarih,RandevuSaat,RandevuBrans,RandevuDoktor) values (@a1,@a2,@a3,@a4)", bgl.baglanti());
@@ -97,7 +95,28 @@ namespace HastaneYönetim
             else
             {
                 MessageBox.Show("Randevu için boş hücre bırakmayınız", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }*/
+
+            EntityRandevular ent = new EntityRandevular();
+            ent.RandevuTarih = MskTarih.Text;
+            ent.RandevuSaat = MskSaat.Text;
+            ent.RandevuBrans = CmbBrans.Text;
+            ent.RandevuDoktor=CmbDoktor.Text;
+            int result = LogicRandevular.LLRandevuEkle(ent);
+            if (result>0)
+            {
+                MessageBox.Show("Ekleme başarıyla gerçekleştirildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
+            else if (result == 0)
+            {
+                MessageBox.Show("Ekleme sırasında bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Hücreleri boş bırakmayınız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void CmbBrans_SelectedIndexChanged(object sender, EventArgs e)

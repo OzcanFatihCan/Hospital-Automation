@@ -15,5 +15,17 @@ namespace LogicLayer
         {
             return DALRandevular.RandevuGetir();
         }
+
+        public static int LLRandevuEkle(EntityRandevular ent)
+        {
+            if (ent.RandevuTarih!="" && ent.RandevuSaat!="" && ent.RandevuBrans!="" && ent.RandevuDoktor!="")
+            {
+                return DALRandevular.RandevuOlustur(ent);
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }

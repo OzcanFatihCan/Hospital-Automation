@@ -7,3 +7,12 @@ D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\ob
 D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\Fatih\DersCSharp\PROJELER\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\Projeler\C#Projeler\GitProje\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Projeler\C#Projeler\GitProje\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Projeler\C#Projeler\GitProje\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\bin\Debug\EntityLayer.dll
+D:\Projeler\C#Projeler\GitProje\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\bin\Debug\EntityLayer.pdb
+D:\Projeler\C#Projeler\GitProje\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+D:\Projeler\C#Projeler\GitProje\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\Projeler\C#Projeler\GitProje\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+D:\Projeler\C#Projeler\GitProje\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Projeler\C#Projeler\GitProje\HastaneOtomasyon\HastaneYönetim\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
