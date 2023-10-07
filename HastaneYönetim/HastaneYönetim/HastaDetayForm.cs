@@ -24,10 +24,13 @@ namespace HastaneYönetim
 
         void RandevuListele()
         {
+            /*
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("Select * From Tbl_Randevular Where HastaTC=" + tc, bgl.baglanti());
             da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = dt;*/
+            List<EntityRandevular> HastaRandevu = LogicRandevular.LLHastaRandevu(tc);
+            dataGridView1.DataSource = HastaRandevu;
         }
 
         private void HastaDetayForm_Load(object sender, EventArgs e)
@@ -78,11 +81,13 @@ namespace HastaneYönetim
         }
 
         private void CmbDoktor_SelectedIndexChanged(object sender, EventArgs e)
-        {      
+        {   /*   
             DataTable dt=new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("Select * From Tbl_Randevular Where RandevuBrans='" + CmbBrans.Text+"'"+"and RandevuDoktor='"+CmbDoktor.Text+"' and RandevuDurum=0", bgl.baglanti());
             da.Fill(dt);
-            dataGridView2.DataSource= dt;
+            dataGridView2.DataSource= dt;*/
+            List<EntityRandevular> RandevuM = LogicRandevular.LLRandevuM(CmbBrans.Text, CmbDoktor.Text);
+            dataGridView2.DataSource = RandevuM;
         }
 
         private void LnkBilgiDüzenle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

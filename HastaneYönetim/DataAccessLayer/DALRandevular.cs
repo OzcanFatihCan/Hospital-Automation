@@ -53,5 +53,88 @@ namespace DataAccessLayer
         }
 
 
+        public static List<EntityRandevular> DoktorRandevu(string DoktorAdSoyad)
+        {
+            List<EntityRandevular> DoktorRandevuları = new List<EntityRandevular>();
+            SqlCommand komut3 = new SqlCommand("Select * From Tbl_Randevular Where RandevuDoktor=@p1", Baglanti.conn);
+            if (komut3.Connection.State != ConnectionState.Open)
+            {
+                komut3.Connection.Open();
+            }
+            komut3.Parameters.AddWithValue("@p1", DoktorAdSoyad);
+            SqlDataReader dr2 = komut3.ExecuteReader();
+            while (dr2.Read())
+            {
+                EntityRandevular ent=new EntityRandevular();
+                ent.Randevuid = int.Parse(dr2["Randevuid"].ToString());
+                ent.RandevuTarih = dr2["RandevuTarih"].ToString();
+                ent.RandevuSaat = dr2["RandevuSaat"].ToString();
+                ent.RandevuBrans = dr2["RandevuBrans"].ToString();
+                ent.RandevuDoktor = dr2["RandevuDoktor"].ToString();
+                ent.RandevuDurum = bool.Parse(dr2["RandevuDurum"].ToString());
+                ent.HastaTC = dr2["HastaTC"].ToString();
+                ent.HastaSikayet = dr2["HastaSikayet"].ToString();
+                DoktorRandevuları.Add(ent);
+            }
+            dr2.Close();
+            return DoktorRandevuları;
+        }
+
+        public static List<EntityRandevular> HastaRandevu(string hastatc)
+        {
+            List<EntityRandevular> HastaRandevuları = new List<EntityRandevular>();
+            SqlCommand komut4 = new SqlCommand("Select * From Tbl_Randevular Where HastaTC=@p1", Baglanti.conn);
+            if (komut4.Connection.State != ConnectionState.Open)
+            {
+                komut4.Connection.Open();
+            }
+            komut4.Parameters.AddWithValue("@p1", hastatc);
+            SqlDataReader dr3 = komut4.ExecuteReader();
+            while (dr3.Read())
+            {
+                EntityRandevular ent = new EntityRandevular();
+                ent.Randevuid = int.Parse(dr3["Randevuid"].ToString());
+                ent.RandevuTarih = dr3["RandevuTarih"].ToString();
+                ent.RandevuSaat = dr3["RandevuSaat"].ToString();
+                ent.RandevuBrans = dr3["RandevuBrans"].ToString();
+                ent.RandevuDoktor = dr3["RandevuDoktor"].ToString();
+                ent.RandevuDurum = bool.Parse(dr3["RandevuDurum"].ToString());
+                ent.HastaTC = dr3["HastaTC"].ToString();
+                ent.HastaSikayet = dr3["HastaSikayet"].ToString();
+                HastaRandevuları.Add(ent);
+            }
+            dr3.Close();
+            return HastaRandevuları;
+        }
+
+        public static List<EntityRandevular> RandevuM(string brans,string doktor)
+        {
+            List<EntityRandevular> RandevuM = new List<EntityRandevular>();
+            SqlCommand komut5 = new SqlCommand("Select * From Tbl_Randevular Where RandevuBrans=@p1 and RandevuDoktor=@p2 and RandevuDurum=0", Baglanti.conn);
+            if (komut5.Connection.State != ConnectionState.Open)
+            {
+                komut5.Connection.Open();
+            }
+            komut5.Parameters.AddWithValue("@p1", brans);
+            komut5.Parameters.AddWithValue("@p2", doktor);
+            SqlDataReader dr4 = komut5.ExecuteReader();
+            while (dr4.Read())
+            {
+                EntityRandevular ent = new EntityRandevular();
+                ent.Randevuid = int.Parse(dr4["Randevuid"].ToString());
+                ent.RandevuTarih = dr4["RandevuTarih"].ToString();
+                ent.RandevuSaat = dr4["RandevuSaat"].ToString();
+                ent.RandevuBrans = dr4["RandevuBrans"].ToString();
+                ent.RandevuDoktor = dr4["RandevuDoktor"].ToString();
+                ent.RandevuDurum = bool.Parse(dr4["RandevuDurum"].ToString());
+                ent.HastaTC = dr4["HastaTC"].ToString();
+                ent.HastaSikayet = dr4["HastaSikayet"].ToString();
+                RandevuM.Add(ent);
+            }
+            dr4.Close();
+            return RandevuM;
+        }
+
     }
 }
+//Select * From Tbl_Randevular Where RandevuBrans='" + CmbBrans.Text+"'"+"and RandevuDoktor='"+CmbDoktor.Text+"' and RandevuDurum=0

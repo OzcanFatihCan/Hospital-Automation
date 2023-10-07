@@ -20,7 +20,7 @@ namespace HastaneYönetim
             InitializeComponent();
         }
 
-        SqlBaglantisi bgl=new SqlBaglantisi();
+        //SqlBaglantisi bgl=new SqlBaglantisi();
         public string TC;
         private void DoktorDetayForm_Load(object sender, EventArgs e)
         {
@@ -47,12 +47,14 @@ namespace HastaneYönetim
             }
 
             //Doktora ait randevuları çekme
+            /*
             DataTable dt= new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("Select * From Tbl_Randevular Where RandevuDoktor='"+LblDoktorAdSoyad.Text+"'",bgl.baglanti());
             da.Fill(dt);
-            dataGridView1.DataSource= dt;
+            dataGridView1.DataSource= dt;*/
 
-
+            List<EntityRandevular> DoktorRandevu = LogicRandevular.LLDoktorRandevu(LblDoktorAdSoyad.Text);
+            dataGridView1.DataSource = DoktorRandevu;
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
