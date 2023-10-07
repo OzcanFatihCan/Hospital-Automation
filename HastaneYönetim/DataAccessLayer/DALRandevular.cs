@@ -135,6 +135,18 @@ namespace DataAccessLayer
             return RandevuM;
         }
 
+        public static bool RandevuAl(EntityRandevular ent)
+        {
+            SqlCommand komut6 = new SqlCommand("Update Tbl_Randevular Set RandevuDurum=1,HastaTC=@p1,HastaSikayet=@p2 where Randevuid=@p3", Baglanti.conn);
+            if (komut6.Connection.State != ConnectionState.Open)
+            {
+                komut6.Connection.Open();
+            }
+            komut6.Parameters.AddWithValue("@p1", ent.HastaTC);
+            komut6.Parameters.AddWithValue("@p2", ent.HastaSikayet);
+            komut6.Parameters.AddWithValue("@p3", ent.Randevuid);      
+            return komut6.ExecuteNonQuery() > 0;
+        }
+
     }
 }
-//Select * From Tbl_Randevular Where RandevuBrans='" + CmbBrans.Text+"'"+"and RandevuDoktor='"+CmbDoktor.Text+"' and RandevuDurum=0

@@ -99,16 +99,41 @@ namespace HastaneYönetim
 
         private void BtnRandevuAl_Click(object sender, EventArgs e)
         {
+            /*
             SqlCommand RandevuAl= new SqlCommand("Update Tbl_Randevular Set RandevuDurum=1,HastaTC=@p1,HastaSikayet=@p2 where Randevuid=@p3",bgl.baglanti());
             RandevuAl.Parameters.AddWithValue("@p1", LblHastaTc.Text);
             RandevuAl.Parameters.AddWithValue("@p2", RchHastaSikayet.Text);
             RandevuAl.Parameters.AddWithValue("@p3", Txtid.Text);
             RandevuAl.ExecuteNonQuery();
             bgl.baglanti().Close();
-            MessageBox.Show("Randevu Alındı","Uyarı",MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //randevu geçmişi yenile
-            RandevuListele();
+            MessageBox.Show("Randevu Alındı","Uyarı",MessageBoxButtons.OK, MessageBoxIcon.Warning);*/
 
+            EntityRandevular ent = new EntityRandevular();
+
+            // Txtid.Text'in sayıya dönüştürülüp dönüştürülemediğini kontrol et
+            if (int.TryParse(Txtid.Text, out int randevuId))
+            {
+                ent.Randevuid = randevuId;
+                ent.HastaTC = LblHastaTc.Text;
+                ent.HastaSikayet = RchHastaSikayet.Text;
+
+                bool result = LogicRandevular.LLRandevuAl(ent);
+
+                if (result && !string.IsNullOrEmpty(Txtid.Text))
+                {
+                    MessageBox.Show("Randevu alma işlemi başarılı", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Randevu geçmişi yenile
+                    RandevuListele();
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen boş hücre bırakmayınız", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Geçersiz Randevu ID", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -63,5 +63,18 @@ namespace LogicLayer
                 return null;
             }
         }
+
+        public static bool LLRandevuAl(EntityRandevular ent)
+        {
+            
+            if (ent.HastaTC!="" && ent.HastaSikayet!="")
+            {
+                return DALRandevular.RandevuAl(ent);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
