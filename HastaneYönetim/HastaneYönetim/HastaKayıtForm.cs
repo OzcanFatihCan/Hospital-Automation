@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using EntityLayer;
+using LogicLayer;
 
 namespace HastaneYönetim
 {
@@ -17,27 +19,32 @@ namespace HastaneYönetim
         {
             InitializeComponent();
         }
-        SqlBaglantisi bgl = new SqlBaglantisi();
+        
         private void BtnKayitOl_Click(object sender, EventArgs e)
         {
-           
-            if (TxtHastaAd.Text!=""&& TxtHastaSoyad.Text != "" && MskHastaTc.Text != "" && MskHastaTc.MaskCompleted && MskHastaTel.MaskCompleted && MskHastaTel.Text != "" && TxtHastaSifre.Text != "" && CmbCinsiyet.Text != "" )
+
+            EntityHastalar ent = new EntityHastalar();
+
+            ent.HastaAd = TxtHastaAd.Text;
+            ent.HastaSoyad = TxtHastaSoyad.Text;
+            ent.HastaTC = MskHastaTc.Text;
+            ent.HastaCinsiyet = CmbCinsiyet.Text;
+            ent.HastaTelefon = MskHastaTel.Text;
+            ent.HastaSifre = TxtHastaSifre.Text;
+            int result = LogicHastalar.LLHastaEkle(ent);
+            if (result > 0)
             {
-                    SqlCommand komut = new SqlCommand("insert into Tbl_Hastalar(HastaAd,HastaSoyad,HastaTC,HastaTelefon,HastaSifre,HastaCinsiyet) values (@p1,@p2,@p3,@p4,@p5,@p6)", bgl.baglanti());
-                    komut.Parameters.AddWithValue("@p1", TxtHastaAd.Text);
-                    komut.Parameters.AddWithValue("@p2", TxtHastaSoyad.Text);
-                    komut.Parameters.AddWithValue("@p3", MskHastaTc.Text);
-                    komut.Parameters.AddWithValue("@p4", MskHastaTel.Text);
-                    komut.Parameters.AddWithValue("@p5", TxtHastaSifre.Text);
-                    komut.Parameters.AddWithValue("@p6", CmbCinsiyet.Text);
-                    komut.ExecuteNonQuery();
-                    bgl.baglanti().Close();
-                    MessageBox.Show("Kaydınız Gerçekleşmiştir Şifreniz: " + TxtHastaSifre.Text, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);    
+                MessageBox.Show("Kayıt başarıyla gerçekleştirildi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (result == 0)
+            {
+                MessageBox.Show("Kayıt sırasında hata oluştu", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Kayıt için hücreleri boş bırakmayınız. ", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Hücreleri boş bırakmayınız", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }

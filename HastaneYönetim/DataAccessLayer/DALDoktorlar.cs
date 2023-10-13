@@ -41,6 +41,10 @@ namespace DataAccessLayer
             List<EntityDoktorlar> DoktorGetir = new List<EntityDoktorlar>();
             //seçilen branşa göre doktor çekme
             SqlCommand komut6 = new SqlCommand("Select DoktorAd,DoktorSoyad From Tbl_Doktorlar Where DoktorBrans=@p1", Baglanti.conn);
+            if (komut6.Connection.State != ConnectionState.Open)
+            {
+                komut6.Connection.Open();
+            }
             komut6.Parameters.AddWithValue("@p1", brans);
             SqlDataReader dr3 = komut6.ExecuteReader();
             while(dr3.Read())

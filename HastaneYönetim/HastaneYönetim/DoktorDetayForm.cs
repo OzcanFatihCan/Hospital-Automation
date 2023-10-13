@@ -20,22 +20,11 @@ namespace HastaneYönetim
             InitializeComponent();
         }
 
-        //SqlBaglantisi bgl=new SqlBaglantisi();
+       
         public string TC;
         private void DoktorDetayForm_Load(object sender, EventArgs e)
         {
-            //LblDoktorTc.Text = TC;
-            /*
-            //tc gelen doktorun ad soyad ve branş çek
-            SqlCommand DoktorCek=new SqlCommand("Select DoktorAd,DoktorSoyad,DoktorBrans From Tbl_Doktorlar Where DoktorTC=@p1",bgl.baglanti());
-            DoktorCek.Parameters.AddWithValue("@p1", LblDoktorTc.Text);
-            SqlDataReader dr1= DoktorCek.ExecuteReader();
-            while (dr1.Read())
-            {
-                LblDoktorAdSoyad.Text = dr1[0]+" " + dr1[1];
-                LblDoktorBrans.Text = dr1[2].ToString();
-            }
-            bgl.baglanti().Close();*/
+           
             List<EntityDoktorlar> Doktorgetir = LogicDoktorlar.LLDoktorListesi(TC);
             foreach (var item in Doktorgetir)
             {
@@ -47,12 +36,6 @@ namespace HastaneYönetim
             }
 
             //Doktora ait randevuları çekme
-            /*
-            DataTable dt= new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * From Tbl_Randevular Where RandevuDoktor='"+LblDoktorAdSoyad.Text+"'",bgl.baglanti());
-            da.Fill(dt);
-            dataGridView1.DataSource= dt;*/
-
             List<EntityRandevular> DoktorRandevu = LogicRandevular.LLDoktorRandevu(LblDoktorAdSoyad.Text);
             dataGridView1.DataSource = DoktorRandevu;
         }

@@ -44,7 +44,9 @@
     <Compile Include="LogicBranslar.cs" />
     <Compile Include="LogicDoktorlar.cs" />
     <Compile Include="LogicDuyurular.cs" />
+    <Compile Include="LogicHastalar.cs" />
     <Compile Include="LogicRandevular.cs" />
+    <Compile Include="LogicSekreterler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
