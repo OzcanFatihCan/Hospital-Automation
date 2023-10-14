@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using EntityLayer;
+using LogicLayer;
 
 namespace HastaneYönetim
 {
@@ -17,14 +19,11 @@ namespace HastaneYönetim
         {
             InitializeComponent();
         }
-        SqlBaglantisi bgl=new SqlBaglantisi();
+      
         private void BtnGirisYapDoktor_Click(object sender, EventArgs e)
         {
-            SqlCommand GirisDoktor = new SqlCommand("Select * From Tbl_Doktorlar Where DoktorTC=@p1 and DoktorSifre=@p2", bgl.baglanti());
-            GirisDoktor.Parameters.AddWithValue("@p1", maskedTextBox1.Text);
-            GirisDoktor.Parameters.AddWithValue("@p2", textBox1.Text);
-            SqlDataReader dr = GirisDoktor.ExecuteReader();
-            if (dr.Read())
+            List<EntityDoktorlar> DoktorGetir = LogicDoktorlar.LLDoktorGiris(maskedTextBox1.Text, textBox1.Text);
+            if (DoktorGetir != null && DoktorGetir.Count > 0)
             {
                 DoktorDetayForm DoktorDetay = new DoktorDetayForm();
                 DoktorDetay.TC = maskedTextBox1.Text;
@@ -33,9 +32,8 @@ namespace HastaneYönetim
             }
             else
             {
-                MessageBox.Show("Hatalı kullanıcı girişi yaptınız.");
-            }
-            bgl.baglanti().Close();
+                MessageBox.Show("Hatalı kullanıcı girişi yaptınız.","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }      
         }
     }
 }

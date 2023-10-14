@@ -10,6 +10,20 @@ namespace LogicLayer
 {
     public class LogicDoktorlar
     {
+
+        public static List<EntityDoktorlar> LLDoktorGiris(string Tc, string Pasw)
+        {
+            if (Tc != "" &&
+                Pasw != "")
+            {
+                return DALDoktorlar.DoktorGiris(Tc, Pasw);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static List<EntityDoktorlar> LLDoktorListesi(string tc)
         {
             if (tc != "") { 

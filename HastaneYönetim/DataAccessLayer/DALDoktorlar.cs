@@ -11,6 +11,29 @@ namespace DataAccessLayer
 {
     public class DALDoktorlar
     {
+        public static List<EntityDoktorlar> DoktorGiris(string Tc, string Pasw)
+        {
+            List<EntityDoktorlar> DoktorLog = new List<EntityDoktorlar>();
+            SqlCommand komut = new SqlCommand("Select * From Tbl_Doktorlar Where DoktorTC=@p1 and DoktorSifre=@p2", Baglanti.conn);
+            if (komut.Connection.State != ConnectionState.Open)
+            {
+                komut.Connection.Open();
+            }
+            komut.Parameters.AddWithValue("@p1", Tc);
+            komut.Parameters.AddWithValue("@p2", Pasw);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                EntityDoktorlar e = new EntityDoktorlar();
+                e.DoktorTC = dr["DoktorTC"].ToString();
+                e.DoktorSifre = dr["DoktorSifre"].ToString();
+                DoktorLog.Add(e);
+            }
+            dr.Close();
+
+            return DoktorLog;
+        }
+
         public static List<EntityDoktorlar> DoktorCek(string tc)
         {
             List<EntityDoktorlar> DoktorGetir=new List<EntityDoktorlar>();

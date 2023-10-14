@@ -38,7 +38,7 @@ namespace HastaneYönetim
             }
             else
             {
-                MessageBox.Show("Hatalı kullanıcı girişi yaptınız.");
+                MessageBox.Show("Hatalı kullanıcı girişi yaptınız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }          
         }
 
