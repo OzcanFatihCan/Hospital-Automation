@@ -9,9 +9,11 @@ namespace EntityLayer
     public class EntitySekreter
     {       
         private string sekreterAdSoyad;
-        private char sekreterTC;
+        private string sekreterTC;
+        private string sekreterSifre;
        
         public string SekreterAdSoyad { get => sekreterAdSoyad; set => sekreterAdSoyad = value; }
-        public char SekreterTC { get => sekreterTC; set => sekreterTC = value; }    
+        public string SekreterTC { get => sekreterTC; set => sekreterTC = value; }
+        public string SekreterSifre { get => sekreterSifre; set => sekreterSifre = value; }
     }
 }

@@ -11,6 +11,29 @@ namespace DataAccessLayer
 {
     public class DALSekreter
     {
+        public static List<EntitySekreter> SekreterGiris(string Tc, string Pasw)
+        {
+            List<EntitySekreter> SekreterLog = new List<EntitySekreter>();
+            SqlCommand komut = new SqlCommand("Select * From Tbl_Sekreter Where SekreterTC=@p1 and SekreterSifre=@p2", Baglanti.conn);
+            if (komut.Connection.State != ConnectionState.Open)
+            {
+                komut.Connection.Open();
+            }
+            komut.Parameters.AddWithValue("@p1", Tc);
+            komut.Parameters.AddWithValue("@p2", Pasw);
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                EntitySekreter e = new EntitySekreter();
+                e.SekreterTC= dr["SekreterTC"].ToString();
+                e.SekreterSifre = dr["SekreterSifre"].ToString();
+                SekreterLog.Add(e);
+            }
+            dr.Close();
+
+            return SekreterLog;
+        }
+
         public static List<EntitySekreter> SekreterGetir(string tc)
         {
             List<EntitySekreter> Sekreterler=new List<EntitySekreter>();
