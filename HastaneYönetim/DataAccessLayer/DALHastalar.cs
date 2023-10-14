@@ -26,5 +26,28 @@ namespace DataAccessLayer
             komut.Parameters.AddWithValue("@p6", ent.HastaCinsiyet);
             return komut.ExecuteNonQuery();
         }
+
+        public static List<EntityHastalar> HastaGiris(string Tc, string Pasw)
+        {
+            List<EntityHastalar> HastaLog= new List<EntityHastalar>();
+            SqlCommand komut2 = new SqlCommand("Select * From Tbl_Hastalar Where HastaTC=@p1 and HastaSifre=@p2", Baglanti.conn);
+            if (komut2.Connection.State != ConnectionState.Open)
+            {
+                komut2.Connection.Open();
+            }
+            komut2.Parameters.AddWithValue("@p1",Tc);
+            komut2.Parameters.AddWithValue("@p2",Pasw);
+            SqlDataReader dr=komut2.ExecuteReader();
+            while (dr.Read())
+            {
+                EntityHastalar e=new EntityHastalar();
+                e.HastaTC = dr["HastaTC"].ToString();
+                e.HastaSifre = dr["HastaSifre"].ToString();
+                HastaLog.Add(e);
+            }
+            dr.Close();
+           
+            return HastaLog;
+        }
     }
 }

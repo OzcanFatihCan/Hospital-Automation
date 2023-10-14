@@ -26,5 +26,19 @@ namespace LogicLayer
                 return -1;
             }
         }
+
+        public static List<EntityHastalar> LLHastaGiris(string Tc,string Pasw) 
+        {
+            if (Tc!="" &&
+                Pasw!="")
+            {
+                return DALHastalar.HastaGiris(Tc,Pasw);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }

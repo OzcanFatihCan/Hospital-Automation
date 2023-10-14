@@ -140,7 +140,6 @@ namespace HastaneYönetim
         {
             int secilen = dataGridView2.SelectedCells[0].RowIndex;
             Txtid.Text = dataGridView2.Rows[secilen].Cells[0].Value.ToString();
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
