@@ -19,12 +19,10 @@ namespace HastaneYönetim
         {
             InitializeComponent();
         }
-
-       
+      
         public string TC;
         private void DoktorDetayForm_Load(object sender, EventArgs e)
-        {
-           
+        {        
             List<EntityDoktorlar> Doktorgetir = LogicDoktorlar.LLDoktorListesi(TC);
             foreach (var item in Doktorgetir)
             {
@@ -47,7 +45,6 @@ namespace HastaneYönetim
             BilgiDüzenle.Show();
             
         }
-
         private void BtnDuyurular_Click(object sender, EventArgs e)
         {
             DuyurularForm Duyurular =new DuyurularForm();

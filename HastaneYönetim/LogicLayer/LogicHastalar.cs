@@ -51,6 +51,35 @@ namespace LogicLayer
                 return null;
             }
         }
+        public static List<EntityHastalar> LLHastaGuncelle(string tc)
+        {
+            if (tc != "")
+            {
+                return DALHastalar.HastaGuncelle(tc);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static bool LLHastaIslem(EntityHastalar ent)
+        {
+            if (ent.HastaAd!="" && 
+                ent.HastaSoyad!=""&&
+                ent.HastaTelefon != "" &&
+                ent.HastaSifre!=""&&
+                ent.HastaCinsiyet!=""&&
+                ent.HastaTC!=""            
+                )
+            {
+                return DALHastalar.HastalarIslem(ent);
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }

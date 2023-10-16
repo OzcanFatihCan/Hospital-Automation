@@ -23,8 +23,7 @@ namespace HastaneYönetim
         public string TC;
 
         private void BtnBilgiGuncelle_Click(object sender, EventArgs e)
-        {
-            
+        {         
             EntityDoktorlar ent = new EntityDoktorlar();
             ent.DoktorTC = MskDoktorTc.Text;
             ent.DoktorAd = TxtDoktorAd.Text;
@@ -40,7 +39,6 @@ namespace HastaneYönetim
             {
                 MessageBox.Show("Lütfen boş hücre bırakmayınız", "bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
         private void DoktorBilgiDüzenleForm_Load(object sender, EventArgs e)

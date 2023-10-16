@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Policy;
 
 namespace DataAccessLayer
 {
@@ -69,6 +70,47 @@ namespace DataAccessLayer
             }
             dr1.Close();
             return Hasta;
+        }
+
+        public static List<EntityHastalar> HastaGuncelle(string tc)
+        {
+            List<EntityHastalar> HastaDüzenle = new List<EntityHastalar>();
+            SqlCommand komut3 = new SqlCommand("Select * From Tbl_Hastalar where HastaTC=@p1", Baglanti.conn);
+            if (komut3.Connection.State != ConnectionState.Open)
+            {
+                komut3.Connection.Open();
+            }
+            komut3.Parameters.AddWithValue("@p1", tc);
+            SqlDataReader dr2 = komut3.ExecuteReader();
+            while (dr2.Read())
+            {
+                EntityHastalar ent = new EntityHastalar();
+                ent.HastaAd = dr2["HastaAd"].ToString();
+                ent.HastaSoyad = dr2["HastaSoyad"].ToString();
+                ent.HastaTC = dr2["HastaTC"].ToString();
+                ent.HastaTelefon = dr2["HastaTelefon"].ToString();
+                ent.HastaSifre = dr2["HastaSifre"].ToString();
+                ent.HastaCinsiyet = dr2["HastaCinsiyet"].ToString();
+                HastaDüzenle.Add(ent);
+            }
+            dr2.Close();
+            return HastaDüzenle;
+        }
+
+        public static bool HastalarIslem(EntityHastalar ent)
+        {
+            SqlCommand komut4 = new SqlCommand("Update Tbl_Hastalar set HastaAd=@p1,HastaSoyad=@p2,HastaTelefon=@p3,HastaSifre=@p4,HastaCinsiyet=@p5 where HastaTC=@p6",Baglanti.conn);
+            if (komut4.Connection.State != ConnectionState.Open)
+            {
+                komut4.Connection.Open();
+            }
+            komut4.Parameters.AddWithValue("@p1",ent.HastaAd);
+            komut4.Parameters.AddWithValue("@p2", ent.HastaSoyad);
+            komut4.Parameters.AddWithValue("@p3", ent.HastaTelefon);
+            komut4.Parameters.AddWithValue("@p4", ent.HastaSifre);
+            komut4.Parameters.AddWithValue("@p5", ent.HastaCinsiyet);
+            komut4.Parameters.AddWithValue("@p6", ent.HastaTC);
+            return komut4.ExecuteNonQuery() > 0;
         }
     }
 }

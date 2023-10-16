@@ -19,7 +19,7 @@ namespace HastaneYönetim
         {
             InitializeComponent();
         }
-        SqlBaglantisi bgl=new SqlBaglantisi();
+        
         public string tc;
 
         void RandevuListele()
