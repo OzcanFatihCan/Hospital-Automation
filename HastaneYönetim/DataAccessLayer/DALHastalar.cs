@@ -49,5 +49,26 @@ namespace DataAccessLayer
            
             return HastaLog;
         }
+
+        public static List<EntityHastalar> Hastalar(string tc)
+        {
+            List<EntityHastalar> Hasta = new List<EntityHastalar>();
+            SqlCommand komut1 = new SqlCommand("Select HastaAd,HastaSoyad From Tbl_Hastalar where HastaTC=@p1", Baglanti.conn);
+            if (komut1.Connection.State != ConnectionState.Open)
+            {
+                komut1.Connection.Open();
+            }
+            komut1.Parameters.AddWithValue("@p1", tc);
+            SqlDataReader dr1 = komut1.ExecuteReader();
+            while (dr1.Read())
+            {
+                EntityHastalar ent = new EntityHastalar();
+                ent.HastaAd = dr1["HastaAd"].ToString();
+                ent.HastaSoyad = dr1["HastaSoyad"].ToString();
+                Hasta.Add(ent);
+            }
+            dr1.Close();
+            return Hasta;
+        }
     }
 }

@@ -40,5 +40,17 @@ namespace LogicLayer
             }
         }
 
+        public static List<EntityHastalar> LLHastalar(string tc)
+        {
+            if (tc!="")
+            {
+                return DALHastalar.Hastalar(tc);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }

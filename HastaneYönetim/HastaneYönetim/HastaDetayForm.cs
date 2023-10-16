@@ -24,11 +24,7 @@ namespace HastaneYönetim
 
         void RandevuListele()
         {
-            /*
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * From Tbl_Randevular Where HastaTC=" + tc, bgl.baglanti());
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;*/
+           
             List<EntityRandevular> HastaRandevu = LogicRandevular.LLHastaRandevu(tc);
             dataGridView1.DataSource = HastaRandevu;
         }
@@ -39,15 +35,11 @@ namespace HastaneYönetim
 
             //ad soyad çekme
 
-            SqlCommand komut=new SqlCommand("Select HastaAd,HastaSoyad From Tbl_Hastalar where HastaTC=@p1",bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1",LblHastaTc.Text);
-            SqlDataReader dr = komut.ExecuteReader();
-            while (dr.Read())
+            List<EntityHastalar> HastaGetir = LogicHastalar.LLHastalar(LblHastaTc.Text);
+            foreach (var item in HastaGetir)
             {
-                LblHastaAdSoyad.Text = dr[0] + " " + dr[1];
+                LblHastaAdSoyad.Text = item.HastaAd + " " + item.HastaSoyad;
             }
-
-            bgl.baglanti().Close();
 
             //randevu geçmişi
             RandevuListele();
@@ -63,16 +55,7 @@ namespace HastaneYönetim
             CmbDoktor.Text = "";
             Txtid.Text = "";
             //seçilen branşa göre doktor çekme
-            /*
-            SqlCommand komut3 = new SqlCommand("Select DoktorAd,DoktorSoyad From Tbl_Doktorlar Where DoktorBrans=@p1", bgl.baglanti());
-            komut3.Parameters.AddWithValue("@p1",CmbBrans.Text);
-            SqlDataReader dr3= komut3.ExecuteReader();
-            while (dr3.Read())
-            {
-                CmbDoktor.Items.Add(dr3[0]+" " + dr3[1]);
-            }
-            bgl.baglanti().Close();*/
-
+         
             List<EntityDoktorlar> BransliDoktorGetir = LogicDoktorlar.LLBransliDoktor(CmbBrans.Text);
             foreach (var item in BransliDoktorGetir)
             {
@@ -81,11 +64,7 @@ namespace HastaneYönetim
         }
 
         private void CmbDoktor_SelectedIndexChanged(object sender, EventArgs e)
-        {   /*   
-            DataTable dt=new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * From Tbl_Randevular Where RandevuBrans='" + CmbBrans.Text+"'"+"and RandevuDoktor='"+CmbDoktor.Text+"' and RandevuDurum=0", bgl.baglanti());
-            da.Fill(dt);
-            dataGridView2.DataSource= dt;*/
+        {   
             List<EntityRandevular> RandevuM = LogicRandevular.LLRandevuM(CmbBrans.Text, CmbDoktor.Text);
             dataGridView2.DataSource = RandevuM;
         }
@@ -99,15 +78,6 @@ namespace HastaneYönetim
 
         private void BtnRandevuAl_Click(object sender, EventArgs e)
         {
-            /*
-            SqlCommand RandevuAl= new SqlCommand("Update Tbl_Randevular Set RandevuDurum=1,HastaTC=@p1,HastaSikayet=@p2 where Randevuid=@p3",bgl.baglanti());
-            RandevuAl.Parameters.AddWithValue("@p1", LblHastaTc.Text);
-            RandevuAl.Parameters.AddWithValue("@p2", RchHastaSikayet.Text);
-            RandevuAl.Parameters.AddWithValue("@p3", Txtid.Text);
-            RandevuAl.ExecuteNonQuery();
-            bgl.baglanti().Close();
-            MessageBox.Show("Randevu Alındı","Uyarı",MessageBoxButtons.OK, MessageBoxIcon.Warning);*/
-
             EntityRandevular ent = new EntityRandevular();
 
             // Txtid.Text'in sayıya dönüştürülüp dönüştürülemediğini kontrol et
