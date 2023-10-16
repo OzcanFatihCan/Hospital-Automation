@@ -20,7 +20,7 @@ namespace HastaneYönetim
             InitializeComponent();
         }
         public string hastatc;
-        SqlBaglantisi bgl=new SqlBaglantisi();
+       
         private void HastaBilgiDüzenleForm_Load(object sender, EventArgs e)
         {
             MskHastaTc.Text = hastatc;

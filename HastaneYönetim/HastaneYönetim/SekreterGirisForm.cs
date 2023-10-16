@@ -18,8 +18,7 @@ namespace HastaneYönetim
         public SekreterGirisForm()
         {
             InitializeComponent();
-        }
-       
+        }      
         private void BtnGirisYapSekreter_Click(object sender, EventArgs e)
         {
             List<EntitySekreter> SekreterGetir = LogicSekreterler.LLSekreterGiris(maskedTextBox1.Text, textBox1.Text);

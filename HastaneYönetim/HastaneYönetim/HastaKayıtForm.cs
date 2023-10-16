@@ -22,7 +22,6 @@ namespace HastaneYönetim
         
         private void BtnKayitOl_Click(object sender, EventArgs e)
         {
-
             EntityHastalar ent = new EntityHastalar();
 
             ent.HastaAd = TxtHastaAd.Text;
@@ -44,7 +43,6 @@ namespace HastaneYönetim
             {
                 MessageBox.Show("Hücreleri boş bırakmayınız", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
     }
 }

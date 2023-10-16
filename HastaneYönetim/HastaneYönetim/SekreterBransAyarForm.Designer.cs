@@ -45,9 +45,9 @@
             // 
             this.BtnGuncelle.BackColor = System.Drawing.Color.Purple;
             this.BtnGuncelle.ForeColor = System.Drawing.Color.White;
-            this.BtnGuncelle.Location = new System.Drawing.Point(106, 139);
+            this.BtnGuncelle.Location = new System.Drawing.Point(116, 160);
             this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(173, 40);
+            this.BtnGuncelle.Size = new System.Drawing.Size(189, 38);
             this.BtnGuncelle.TabIndex = 31;
             this.BtnGuncelle.Text = "Güncelle";
             this.BtnGuncelle.UseVisualStyleBackColor = false;
@@ -57,9 +57,9 @@
             // 
             this.BtnSil.BackColor = System.Drawing.Color.Purple;
             this.BtnSil.ForeColor = System.Drawing.Color.White;
-            this.BtnSil.Location = new System.Drawing.Point(199, 93);
+            this.BtnSil.Location = new System.Drawing.Point(217, 98);
             this.BtnSil.Name = "BtnSil";
-            this.BtnSil.Size = new System.Drawing.Size(80, 40);
+            this.BtnSil.Size = new System.Drawing.Size(87, 56);
             this.BtnSil.TabIndex = 30;
             this.BtnSil.Text = "Sil";
             this.BtnSil.UseVisualStyleBackColor = false;
@@ -69,9 +69,9 @@
             // 
             this.BtnEkle.BackColor = System.Drawing.Color.Purple;
             this.BtnEkle.ForeColor = System.Drawing.Color.White;
-            this.BtnEkle.Location = new System.Drawing.Point(106, 93);
+            this.BtnEkle.Location = new System.Drawing.Point(116, 98);
             this.BtnEkle.Name = "BtnEkle";
-            this.BtnEkle.Size = new System.Drawing.Size(80, 40);
+            this.BtnEkle.Size = new System.Drawing.Size(87, 56);
             this.BtnEkle.TabIndex = 29;
             this.BtnEkle.Text = "Ekle";
             this.BtnEkle.UseVisualStyleBackColor = false;
@@ -81,45 +81,45 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(294, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(321, 18);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(407, 160);
+            this.dataGridView1.Size = new System.Drawing.Size(401, 181);
             this.dataGridView1.TabIndex = 28;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // TxtBransAd
             // 
-            this.TxtBransAd.Location = new System.Drawing.Point(106, 56);
+            this.TxtBransAd.Location = new System.Drawing.Point(116, 63);
             this.TxtBransAd.Name = "TxtBransAd";
-            this.TxtBransAd.Size = new System.Drawing.Size(173, 31);
+            this.TxtBransAd.Size = new System.Drawing.Size(188, 29);
             this.TxtBransAd.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(10, 56);
+            this.label6.Location = new System.Drawing.Point(11, 63);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 23);
+            this.label6.Size = new System.Drawing.Size(102, 22);
             this.label6.TabIndex = 25;
             this.label6.Text = "Brans Ad:";
             // 
             // TxtBransid
             // 
             this.TxtBransid.Enabled = false;
-            this.TxtBransid.Location = new System.Drawing.Point(106, 19);
+            this.TxtBransid.Location = new System.Drawing.Point(116, 18);
             this.TxtBransid.Name = "TxtBransid";
-            this.TxtBransid.Size = new System.Drawing.Size(173, 31);
+            this.TxtBransid.Size = new System.Drawing.Size(188, 29);
             this.TxtBransid.TabIndex = 19;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(16, 19);
+            this.label1.Location = new System.Drawing.Point(18, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 23);
+            this.label1.Size = new System.Drawing.Size(95, 22);
             this.label1.TabIndex = 18;
             this.label1.Text = "Brans id:";
             // 
@@ -127,9 +127,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Purple;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 93);
+            this.button1.Location = new System.Drawing.Point(13, 98);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 86);
+            this.button1.Size = new System.Drawing.Size(96, 100);
             this.button1.TabIndex = 32;
             this.button1.Text = "Temizle";
             this.button1.UseVisualStyleBackColor = false;
@@ -137,11 +137,11 @@
             // 
             // SekreterBransAyarForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(714, 191);
+            this.ClientSize = new System.Drawing.Size(734, 211);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.BtnSil);
@@ -151,9 +151,9 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TxtBransid);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
             this.MaximizeBox = false;
             this.Name = "SekreterBransAyarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
