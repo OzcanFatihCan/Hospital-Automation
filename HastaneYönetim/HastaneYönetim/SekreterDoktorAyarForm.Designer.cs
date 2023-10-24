@@ -174,6 +174,7 @@
             // BtnGuncelle
             // 
             this.BtnGuncelle.BackColor = System.Drawing.Color.Purple;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnGuncelle.ForeColor = System.Drawing.Color.White;
             this.BtnGuncelle.Location = new System.Drawing.Point(189, 257);
             this.BtnGuncelle.Name = "BtnGuncelle";
